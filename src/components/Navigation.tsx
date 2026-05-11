@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,87 +12,121 @@ const Navigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-lg shadow-lg transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 py-4 ${
+        isScrolled ? 'lg:py-3' : 'lg:py-6'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div 
+          className={`relative flex justify-between items-center px-6 lg:px-8 py-3 rounded-2xl transition-all duration-500 border ${
+            isScrolled 
+              ? 'bg-white/80 backdrop-blur-lg border-charcoal/5 shadow-soft' 
+              : 'bg-transparent border-transparent'
+          }`}
+        >
           {/* Logo */}
-          <Link to="/" className="font-serif text-2xl lg:text-3xl font-bold text-white transition-colors duration-300 hover:text-gold">
-            Knock On Wood
+          <Link to="/" className="flex items-center gap-3 group">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-[360deg]"
+              style={{ background: 'var(--gradient-copper)' }}
+            >
+              <span className="font-display font-bold text-white text-base">N</span>
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-display text-lg tracking-[0.15em] text-charcoal font-medium">NEXLANE</span>
+              <span className="font-grotesk text-[0.55rem] tracking-[0.3em] text-copper font-semibold">INTERIORS</span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-8">
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-medium transition-all duration-300 hover:text-gold relative ${
-                  location.pathname === item.path ? 'text-gold' : 'text-white'
+                className={`relative font-grotesk text-[0.8rem] tracking-widest uppercase transition-colors duration-300 ${
+                  location.pathname === item.path ? 'text-copper' : 'text-charcoal/60 hover:text-charcoal'
                 }`}
               >
                 {item.name}
                 {location.pathname === item.path && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
+                  <motion.div 
+                    layoutId="nav-underline"
+                    className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-copper"
+                  />
                 )}
               </Link>
             ))}
           </div>
 
-          {/* Contact Button & Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            <Button variant="luxury" size="sm" className="hidden lg:flex">
-              <Phone className="h-4 w-4" />
-              Contact Us
-            </Button>
-            
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-white transition-colors hover:text-gold"
+          {/* CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Link
+              to="/contact"
+              className="group flex items-center gap-2 px-6 py-2.5 rounded-xl text-[0.75rem] font-grotesk font-bold tracking-widest uppercase transition-all duration-500 bg-charcoal text-white hover:bg-copper"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+              Start Project
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1" />
+            </Link>
           </div>
-        </div>
 
-        {/* Mobile Navigation */}
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 text-charcoal/70 hover:text-copper transition-colors"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
         {isOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-t border-gray-800">
-            <div className="px-4 py-6 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 px-6 mt-4 lg:hidden"
+          >
+            <div className="bg-white/95 backdrop-blur-xl border border-charcoal/5 rounded-2xl p-8 shadow-hard space-y-6">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`block py-2 font-medium transition-colors ${
-                    location.pathname === item.path ? 'text-gold' : 'text-white hover:text-gold'
+                  className={`block font-display text-2xl font-light tracking-wide ${
+                    location.pathname === item.path ? 'text-copper' : 'text-charcoal/70'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="luxury" size="sm" className="w-full mt-4">
-                <Phone className="h-4 w-4" />
-                Contact Us
-              </Button>
+              <div className="pt-4">
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-copper text-white font-grotesk text-xs tracking-widest uppercase font-bold"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Book Consultation <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </nav>
   );
 };

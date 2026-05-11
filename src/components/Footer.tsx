@@ -1,149 +1,170 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Instagram, Linkedin, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: 'About Us', path: '/about' },
+  const navLinks = [
+    { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
-  const services = [
-    'Aluminium Work',
+  const serviceLinks = [
+    'Aluminium Works',
     'Furniture Contracting',
     'Interior Design',
+    'Turnkey Solutions',
     'Space Planning',
-    'Complete Interiors',
   ];
 
   return (
-    <footer className="bg-navy text-cream relative overflow-hidden">
-      {/* Background Texture */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent"></div>
-      </div>
+    <footer className="relative overflow-hidden bg-white border-t border-ivory-dark">
+      {/* Decorative gradient accent line at top */}
+      <div className="h-[2px] w-full" style={{ background: 'var(--gradient-copper)' }} />
 
-      <div className="relative z-10">
-        {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {/* Company Info */}
-            <div className="lg:col-span-2">
-              <Link to="/" className="font-serif text-3xl font-bold text-gold mb-6 block">
-                Knock On Wood
-              </Link>
-              <p className="text-cream/80 text-lg leading-relaxed mb-6 max-w-md">
-                Creating exceptional interiors that blend luxury with functionality. 
-                Specializing in aluminium work, furniture contracting, and complete interior solutions.
-                Transform your space with our expert team and experience the difference of true craftsmanship.
-              </p>
-              
-              {/* Contact Info */}
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-gold" />
-                  <span className="text-cream/80">+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-gold" />
-                  <span className="text-cream/80">addsubedar@gmail.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-gold" />
-                  <span className="text-cream/80">123 Design District, New York, NY 10001</span>
-                </div>
+      {/* Noise overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
+          
+          {/* Brand column */}
+          <div className="lg:col-span-2 space-y-6">
+            <Link to="/" className="flex items-center gap-3 w-fit group">
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center"
+                style={{ background: 'var(--gradient-copper)' }}
+              >
+                <span style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: '1.1rem', color: 'white' }}>N</span>
               </div>
-
-              {/* Social Media */}
-              <div className="flex space-x-4">
-                <a href="#" className="p-3 bg-cream/10 rounded-lg hover:bg-gold hover:text-navy transition-all duration-300">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="p-3 bg-cream/10 rounded-lg hover:bg-gold hover:text-navy transition-all duration-300">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="p-3 bg-cream/10 rounded-lg hover:bg-gold hover:text-navy transition-all duration-300">
-                  <Twitter className="h-5 w-5" />
-                </a>
+              <div className="flex flex-col leading-none">
+                <span style={{ fontFamily: 'Cormorant Garamond, serif', color: 'hsl(var(--charcoal))', fontSize: '1.15rem', letterSpacing: '0.18em', fontWeight: 300 }}>
+                  NEXLANE
+                </span>
+                <span style={{ fontFamily: 'Space Grotesk, sans-serif', color: 'hsl(var(--copper))', fontSize: '0.58rem', letterSpacing: '0.24em', marginTop: '2px' }}>
+                  INTERIORS
+                </span>
               </div>
+            </Link>
+
+            <p className="font-body text-sm leading-relaxed max-w-sm text-charcoal/50">
+              Redefining living and working spaces with precision craftsmanship, innovative design,
+              and an unwavering commitment to excellence.
+            </p>
+
+            <div className="space-y-3">
+              <div className="flex flex-col gap-1">
+                <span className="font-grotesk text-[0.6rem] tracking-widest uppercase text-copper font-bold">Contact Person</span>
+                <span className="font-display text-lg text-charcoal">Ansar Ahmed</span>
+              </div>
+              <a
+                href="tel:+919118861979"
+                className="flex items-center gap-3 group/link animated-underline w-fit text-charcoal/60"
+              >
+                <Phone className="w-4 h-4 flex-shrink-0 text-copper" />
+                <span className="font-body text-sm group-hover/link:text-copper transition-colors">+91 91188 61979</span>
+              </a>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h3 className="font-serif text-xl font-bold text-gold mb-6">Quick Links</h3>
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="text-cream/80 hover:text-gold transition-colors duration-300"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <div className="flex items-center gap-3">
+              {[
+                { icon: Instagram, href: '#' },
+                { icon: Linkedin, href: '#' },
+              ].map(({ icon: Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 bg-copper/5 border border-copper/10"
+                >
+                  <Icon className="w-4 h-4 text-copper" />
+                </a>
+              ))}
             </div>
+          </div>
 
-            {/* Services */}
-            <div>
-              <h3 className="font-serif text-xl font-bold text-gold mb-6">Services</h3>
-              <ul className="space-y-3">
-                {services.map((service) => (
-                  <li key={service}>
-                    <span className="text-cream/80">{service}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Quick Links */}
+          <div className="space-y-5">
+            <h3 className="font-grotesk font-semibold text-xs tracking-[0.16em] uppercase text-copper">
+              Navigation
+            </h3>
+            <ul className="space-y-3">
+              {navLinks.map(link => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="animated-underline font-body text-sm transition-colors duration-300 hover:text-copper text-charcoal/60"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="space-y-5">
+            <h3 className="font-grotesk font-semibold text-xs tracking-[0.16em] uppercase text-copper">
+              Services
+            </h3>
+            <ul className="space-y-3">
+              {serviceLinks.map(s => (
+                <li key={s}>
+                  <span className="font-body text-sm text-charcoal/40">
+                    {s}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="border-t border-cream/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="text-center">
-              <h3 className="font-serif text-2xl font-bold text-gold mb-4">
+        {/* Newsletter */}
+        <div className="rounded-2xl p-8 mb-12 bg-ivory shadow-soft">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <h4 className="font-display font-semibold mb-1 text-xl text-charcoal">
                 Stay Inspired
-              </h3>
-              <p className="text-cream/80 mb-6 max-w-2xl mx-auto">
-                Subscribe to our newsletter for the latest design trends, project updates, 
-                and exclusive insights from our design team.
+              </h4>
+              <p className="font-body text-sm text-charcoal/40">
+                Design trends, project reveals, and exclusive insights — delivered monthly.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg bg-cream/10 border border-cream/20 text-cream placeholder-cream/50 focus:outline-none focus:border-gold"
-                />
-                <Button variant="luxury">Subscribe</Button>
-              </div>
+            </div>
+            <div className="flex gap-3 flex-1 max-w-md">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-xl font-body text-sm outline-none transition-all duration-300 bg-white border border-ivory-dark text-charcoal"
+                onFocus={(e) => (e.target.style.borderColor = 'hsl(var(--copper)/0.5)')}
+                onBlur={(e) => (e.target.style.borderColor = 'hsl(var(--ivory-dark))')}
+              />
+              <button
+                className="magnetic-btn flex items-center gap-2 px-5 py-3 rounded-xl font-grotesk text-sm font-medium text-white whitespace-nowrap shadow-copper"
+                style={{ background: 'var(--gradient-copper)' }}
+              >
+                Subscribe <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-cream/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-cream/60 text-sm">
-                © {currentYear} Knock On Wood. All rights reserved.
-              </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" className="text-cream/60 hover:text-gold text-sm transition-colors">
-                  Privacy Policy
-                </a>
-                <a href="#" className="text-cream/60 hover:text-gold text-sm transition-colors">
-                  Terms of Service
-                </a>
-              </div>
-            </div>
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-ivory-dark">
+          <p className="font-body text-xs text-charcoal/30">
+            © {year} Nexlane Interiors. All rights reserved.
+          </p>
+          <div className="flex gap-6">
+            {['Privacy Policy', 'Terms of Service'].map(l => (
+              <a key={l} href="#" className="font-body text-xs animated-underline transition-colors hover:text-copper text-charcoal/30">
+                {l}
+              </a>
+            ))}
           </div>
         </div>
       </div>

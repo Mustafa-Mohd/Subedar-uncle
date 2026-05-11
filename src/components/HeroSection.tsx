@@ -1,199 +1,170 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Leaf, Star, Circle } from 'lucide-react';
-import heroImage from '@/assets/hero-image.jpg';
-
-gsap.registerPlugin(ScrollTrigger);
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Trophy, Users, Star, ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const floatingRef1 = useRef<HTMLDivElement>(null);
-  const floatingRef2 = useRef<HTMLDivElement>(null);
-  const floatingRef3 = useRef<HTMLDivElement>(null);
+  const images = [
+    'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=90',
+    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1800&q=90',
+  ];
 
-  useEffect(() => {
-    const tl = gsap.timeline();
-    
-    // Set initial states
-    gsap.set([titleRef.current, subtitleRef.current, buttonRef.current], {
-      y: 100,
-      opacity: 0
-    });
-    
-    gsap.set(imageRef.current, {
-      scale: 1.1,
-      opacity: 0
-    });
-
-    gsap.set([floatingRef1.current, floatingRef2.current, floatingRef3.current], {
-      y: 50,
-      opacity: 0
-    });
-
-    // Animation sequence
-    tl.to(imageRef.current, {
-      duration: 1.5,
-      scale: 1,
-      opacity: 1,
-      ease: "power3.out"
-    })
-    .to(titleRef.current, {
-      duration: 1.2,
-      y: 0,
-      opacity: 1,
-      ease: "back.out(1.7)"
-    }, "-=1")
-    .to(subtitleRef.current, {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      ease: "power3.out"
-    }, "-=0.8")
-    .to(buttonRef.current, {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      ease: "power3.out"
-    }, "-=0.6")
-    .to([floatingRef1.current, floatingRef2.current, floatingRef3.current], {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      stagger: 0.2,
-      ease: "power3.out"
-    }, "-=0.5");
-
-    // Floating animations
-    gsap.to(floatingRef1.current, {
-      y: -20,
-      duration: 3,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-
-    gsap.to(floatingRef2.current, {
-      y: -15,
-      x: 10,
-      rotation: 5,
-      duration: 4,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-
-    gsap.to(floatingRef3.current, {
-      y: -25,
-      x: -5,
-      duration: 2.5,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-
-    // Parallax effect on scroll
-    ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: "top top",
-      end: "bottom top",
-      scrub: 1,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        gsap.to(imageRef.current, {
-          duration: 0.1,
-          y: progress * -100,
-          ease: "none"
-        });
-        gsap.to([floatingRef1.current, floatingRef2.current, floatingRef3.current], {
-          duration: 0.1,
-          y: progress * -50,
-          ease: "none"
-        });
-      }
-    });
-    
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const stats = [
+    { icon: Trophy, label: 'Excellence', value: '27+', sub: 'Years Experience' },
+    { icon: Users, label: 'Community', value: '200+', sub: 'Luxury Projects' },
+    { icon: Star, label: 'Quality', value: '98%', sub: 'Client Rating' },
+  ];
 
   return (
-    <section ref={heroRef} className="relative h-screen overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div
-        ref={imageRef}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+    <section className="relative h-screen w-full overflow-hidden flex items-center">
+      {/* Background with Ambient Zoom */}
+      <motion.div 
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 15, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
+        className="absolute inset-0 z-0"
       >
-        <div className="absolute inset-0 bg-gradient-overlay"></div>
-      </div>
+        <img
+          src={images[0]}
+          alt="Luxury Interior"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
 
-      {/* Floating Elements */}
-      <div ref={floatingRef1} className="absolute top-20 right-20 text-gold opacity-60 hidden lg:block">
-        <Leaf className="w-12 h-12" />
-      </div>
-      <div ref={floatingRef2} className="absolute bottom-40 left-20 text-cream opacity-50 hidden lg:block">
-        <Star className="w-8 h-8" />
-      </div>
-      <div ref={floatingRef3} className="absolute top-1/3 right-1/4 text-gold opacity-40 hidden lg:block">
-        <Circle className="w-6 h-6" />
-      </div>
+      {/* Cinematic Overlays */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-transparent" />
+      <div className="absolute inset-0 z-1 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
+      <div className="absolute inset-0 z-1 backdrop-brightness-75" />
+      
+      {/* Noise Texture */}
+      <div className="absolute inset-0 z-1 opacity-[0.03] pointer-events-none" 
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} 
+      />
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1
-            ref={titleRef}
-            className="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold text-cream mb-6 leading-tight"
-          >
-            We Design
-            <span className="block text-gold">Beautiful Spaces</span>
-          </h1>
+      {/* Main Content Layout */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-center h-full pt-20">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <p
-            ref={subtitleRef}
-            className="text-lg sm:text-xl lg:text-2xl text-cream/90 mb-8 max-w-2xl mx-auto leading-relaxed"
-          >
-            Where elegance meets functionality. Specializing in aluminium work, furniture contracting, and complete interior solutions that reflect your unique style and elevate your everyday living.
-          </p>
-          
-          <div ref={buttonRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              variant="hero" 
-              size="xl" 
-              className="group magnetic-button"
-              onClick={scrollToServices}
+          {/* Left Column: Typography */}
+          <div className="lg:col-span-8 xl:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
             >
-              Explore Our Work
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="elegant" size="xl" className="magnetic-button">
-              Book Consultation
-            </Button>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-10 h-px bg-copper" />
+                <span className="font-grotesk text-[0.7rem] tracking-[0.4em] uppercase text-ivory/80 font-bold">
+                  Est. 1997 • Bespoke Interiors
+                </span>
+              </div>
+
+              <h1 
+                className="font-display text-white leading-[1.1] mb-8"
+                style={{ fontSize: 'clamp(2.5rem, 6vw, 4.8rem)' }}
+              >
+                Crafting Spaces That <br />
+                <span className="italic font-light text-copper-light">Define Your Legacy</span>
+              </h1>
+
+              <p className="font-body text-ivory/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl">
+                Nexlane Interiors merges architectural precision with luxury artistry to create 
+                living environments that are as unique as your own story.
+              </p>
+
+              <div className="flex flex-wrap gap-5">
+                <Link
+                  to="/services"
+                  className="group relative flex items-center gap-3 px-10 py-5 bg-charcoal text-white rounded-xl overflow-hidden transition-all duration-500 hover:shadow-hard"
+                >
+                  <span className="relative z-10 font-grotesk text-[0.8rem] tracking-widest uppercase font-bold">Discover Collection</span>
+                  <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="group flex items-center gap-3 px-10 py-5 bg-ivory-dark/40 backdrop-blur-md border border-charcoal/10 text-charcoal rounded-xl transition-all duration-500 hover:bg-ivory-dark/60"
+                >
+                  <span className="font-grotesk text-[0.8rem] tracking-widest uppercase font-bold text-charcoal/80">Start Consultation</span>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Floating Visual Element (Stats Cards) */}
+          <div className="hidden lg:flex lg:col-span-4 xl:col-span-5 justify-end">
+            <div className="flex flex-col gap-6">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 + i * 0.15, ease: 'easeOut' }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                  className="group relative bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl w-64 lg:w-72 shadow-hard overflow-hidden"
+                >
+                  {/* Glass highlight effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-copper/20 flex items-center justify-center text-copper">
+                      <stat.icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="font-display text-2xl text-white font-medium">{stat.value}</div>
+                      <div className="font-grotesk text-[0.6rem] tracking-widest uppercase text-ivory/50">{stat.sub}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-cream animate-bounce">
-        <div className="w-6 h-10 border-2 border-cream rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-cream rounded-full mt-2 animate-pulse"></div>
-        </div>
+      {/* Floating Particles Placeholder (Simulated with simple spans for now) */}
+      <div className="absolute inset-0 z-2 pointer-events-none overflow-hidden">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-copper/20 rounded-full"
+            initial={{ 
+              x: Math.random() * 100 + '%', 
+              y: Math.random() * 100 + '%',
+              opacity: 0.1
+            }}
+            animate={{ 
+              y: [null, '-20px', '20px'],
+              opacity: [0.1, 0.4, 0.1]
+            }}
+            transition={{ 
+              duration: 5 + Math.random() * 5, 
+              repeat: Infinity, 
+              ease: 'easeInOut' 
+            }}
+          />
+        ))}
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 cursor-pointer group"
+        onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+      >
+        <span className="font-grotesk text-[0.6rem] tracking-[0.3em] uppercase text-ivory/40 group-hover:text-copper transition-colors">Discover</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-copper to-transparent relative">
+          <motion.div 
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute top-0 left-[-1.5px] w-1 h-1 bg-white rounded-full"
+          />
+        </div>
+      </motion.div>
+
     </section>
   );
 };

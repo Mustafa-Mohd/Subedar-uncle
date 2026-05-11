@@ -1,38 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
+import StudioSection from '@/components/StudioSection';
 import ServicesSection from '@/components/ServicesSection';
-import GalleryCarousel from '@/components/GalleryCarousel';
-import HorizontalScrollSection from '@/components/HorizontalScrollSection';
-import GallerySection from '@/components/GallerySection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import CtaBanner from '@/components/CtaBanner';
 import Footer from '@/components/Footer';
-import FloatingContact from '@/components/FloatingContact';
 import Preloader from '@/components/Preloader';
 import ScrollToTop from '@/components/ScrollToTop';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <>
+    <div className="bg-ivory text-charcoal selection:bg-copper selection:text-white">
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      <div className={`min-h-screen transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`min-h-screen transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navigation />
         <main>
           <HeroSection />
-          <AboutSection />
+          <StudioSection />
           <ServicesSection />
-          <GalleryCarousel />
-          <HorizontalScrollSection />
-          <GallerySection />
+          <TestimonialsSection />
+          <CtaBanner />
         </main>
         <Footer />
-        <FloatingContact />
         <ScrollToTop />
+        <FloatingWhatsApp />
       </div>
-    </>
+    </div>
   );
 };
 

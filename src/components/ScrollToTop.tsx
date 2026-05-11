@@ -1,44 +1,76 @@
 import React, { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ArrowUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const currentProgress = total > 0 ? (scrollY / total) * 100 : 0;
+      
+      setProgress(currentProgress);
+      setIsVisible(scrollY > 400);
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    gsap.to(window, {
-      duration: 1.5,
-      scrollTo: { y: 0, autoKill: true },
-      ease: "power3.inOut"
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   };
 
+  const radius = 22;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (progress / 100) * circumference;
+
   return (
-    <div className={`fixed bottom-6 left-6 z-40 transition-all duration-300 ${
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-    }`}>
-      <Button
+    <div 
+      className={`fixed bottom-8 left-8 z-[45] transition-all duration-500 transform ${
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-50 pointer-events-none'
+      }`}
+    >
+      <button
         onClick={scrollToTop}
-        variant="secondary"
-        size="icon"
-        className="w-12 h-12 rounded-full shadow-elegant hover:shadow-gold hover:scale-110 transition-all duration-300 bg-card/80 backdrop-blur-sm border border-border hover:border-gold magnetic-button"
+        className="group relative w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-hard border border-ivory-dark overflow-hidden transition-transform active:scale-90"
+        aria-label="Scroll to top"
       >
-        <ArrowUp className="w-5 h-5" />
-      </Button>
+        <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none">
+          <circle
+            cx="28"
+            cy="28"
+            r={radius}
+            fill="transparent"
+            stroke="hsl(var(--charcoal)/0.05)"
+            strokeWidth="2"
+          />
+          <circle
+            cx="28"
+            cy="28"
+            r={radius}
+            fill="transparent"
+            stroke="hsl(var(--copper))"
+            strokeWidth="2"
+            strokeDasharray={circumference}
+            strokeDashoffset={offset}
+            strokeLinecap="round"
+            className="transition-all duration-200"
+          />
+        </svg>
+
+        <ArrowUp className="w-5 h-5 text-charcoal group-hover:text-copper transition-colors duration-300 transform group-hover:-translate-y-1" />
+        
+        <div className="absolute right-full mr-4 px-3 py-1.5 bg-white border border-ivory-dark rounded-lg opacity-0 translate-x-[10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-medium">
+          <span className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/80">Scroll to top</span>
+        </div>
+      </button>
     </div>
   );
 };
