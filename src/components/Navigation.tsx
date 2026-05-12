@@ -19,6 +19,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -37,17 +38,12 @@ const Navigation = () => {
           }`}
         >
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-[360deg]"
-              style={{ background: 'var(--gradient-copper)' }}
-            >
-              <span className="font-display font-bold text-white text-base">N</span>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-lg tracking-[0.15em] text-charcoal font-medium">NEXLANE</span>
-              <span className="font-grotesk text-[0.55rem] tracking-[0.3em] text-copper font-semibold">INTERIORS</span>
-            </div>
+          <Link to="/" className="group">
+            <img 
+              src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1778589282/IMG_20260505_234313_298_nwhxup.webp" 
+              alt="Nexlane Interiors Logo" 
+              className="h-10 lg:h-12 w-10 lg:w-12 rounded-full object-cover border border-charcoal/5 transition-all duration-500 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Nav */}

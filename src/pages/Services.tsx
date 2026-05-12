@@ -36,8 +36,8 @@ const Services = () => {
             </h1>
             
             <p className="font-body text-lg leading-relaxed max-w-2xl mx-auto mb-12 text-charcoal/60">
-              From precision-engineered aluminium works to hand-crafted furniture and complete 
-              turnkey interior design. We deliver excellence at every scale.
+              From contemporary false ceiling concepts to detailed wall moulding and complete 
+              interior execution. We deliver excellence tailored to your lifestyle and budget.
             </p>
             
             <div className="flex justify-center gap-6">

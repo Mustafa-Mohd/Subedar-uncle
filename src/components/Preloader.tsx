@@ -72,32 +72,12 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       <div className="absolute bottom-8 right-8 w-16 h-16 border-r border-b border-copper/20" />
 
       <div className="text-center relative z-10">
-        <div ref={logoRef} className="mb-10">
-          {/* Logo mark */}
-          <div className="flex items-center justify-center mb-6">
-            <div
-              className="w-16 h-16 rounded-full flex items-center justify-center"
-              style={{ background: 'var(--gradient-copper)' }}
-            >
-              <span
-                className="text-2xl font-bold"
-                style={{ fontFamily: 'Cormorant Garamond, serif', color: 'white' }}
-              >
-                N
-              </span>
-            </div>
-          </div>
-
-          <h1
-            style={{ fontFamily: 'Cormorant Garamond, serif', color: 'hsl(var(--charcoal))', fontSize: '2.8rem', fontWeight: 300, letterSpacing: '0.15em' }}
-          >
-            NEXLANE
-          </h1>
-          <p
-            style={{ fontFamily: 'Space Grotesk, sans-serif', color: 'hsl(var(--copper))', fontSize: '0.65rem', letterSpacing: '0.35em', marginTop: '0.4rem' }}
-          >
-            INTERIORS
-          </p>
+        <div ref={logoRef} className="mb-10 flex flex-col items-center">
+          <img 
+            src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1778589282/IMG_20260505_234313_298_nwhxup.webp" 
+            alt="Nexlane Interiors Logo" 
+            className="h-24 w-24 rounded-full object-cover border-2 border-copper/20 mb-4 shadow-hard"
+          />
         </div>
 
         {/* Separator line */}

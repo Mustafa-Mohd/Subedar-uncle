@@ -75,7 +75,7 @@ const HeroSection = () => {
 
               <div className="flex flex-wrap gap-5">
                 <Link
-                  to="/services"
+                  to="/gallery"
                   className="group relative flex items-center gap-3 px-10 py-5 bg-charcoal text-white rounded-xl overflow-hidden transition-all duration-500 hover:shadow-hard"
                 >
                   <span className="relative z-10 font-grotesk text-[0.8rem] tracking-widest uppercase font-bold">Discover Collection</span>

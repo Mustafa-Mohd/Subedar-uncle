@@ -29,12 +29,11 @@ const PROCESS_STEPS = [
 ];
 
 const WHY_US = [
-  '27+ years of industry expertise',
-  'End-to-end project management',
-  '200+ successful projects delivered',
-  'Bespoke solutions for every budget',
-  'Certified aluminium fabricators',
-  'Pan-regional presence & service',
+  'Modern & customized interior solutions',
+  'Expertise in false ceiling and decorative wall designs',
+  'Affordable pricing with premium finishing',
+  'Quality materials and professional execution',
+  'Client-focused approach with on-time delivery',
 ];
 
 const StudioSection = () => {
@@ -93,14 +92,15 @@ const StudioSection = () => {
             </h2>
 
             <p className="font-body leading-relaxed text-charcoal/60" style={{ fontSize: '1rem' }}>
-              Nexlane Interiors is a full-service interior design and contracting studio with
-              over two decades of expertise. We specialise in aluminium works, bespoke furniture,
-              and comprehensive interior transformations for residential and commercial clients.
+              Welcome to Nexlane Interiors, where creativity meets functionality to transform everyday spaces into modern, elegant interiors.
             </p>
 
             <p className="font-body leading-relaxed text-charcoal/60" style={{ fontSize: '1rem' }}>
-              Our philosophy is simple: every space deserves to be extraordinary. We listen,
-              design, and execute with an uncompromising commitment to craftsmanship and detail.
+              We specialize in false ceiling solutions, wall moulding, PVC/WPVC works, custom wall designs, and complete interior execution tailored to suit every lifestyle and budget. Our goal is to create spaces that not only look premium but also feel comfortable, practical, and timeless.
+            </p>
+
+            <p className="font-body leading-relaxed text-charcoal/60" style={{ fontSize: '1rem' }}>
+              At Nexlane Interiors, we believe every space has the potential to stand out. From contemporary ceiling concepts to detailed finishing touches, we focus on quality craftsmanship, clean execution, and modern design aesthetics.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">

@@ -1,71 +1,101 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Layers, Sofa, Settings2, LayoutGrid, Utensils, Lightbulb, PenTool, Home } from 'lucide-react';
+import { ArrowRight, Layers, Sofa, Settings2, LayoutGrid, Utensils, Lightbulb, PenTool, Home, Paintbrush, Image, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    icon: Home,
-    number: '01',
-    title: 'Full Home Interiors',
-    tagline: 'End-to-End Transformations',
-    description:
-      'Complete residential design from concept to final styling. We handle everything from space planning to the last piece of decor.',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80',
-    tags: ['Space Planning', 'Furniture', 'Styling'],
-  },
-  {
-    icon: Utensils,
-    number: '02',
-    title: 'Modular Kitchens',
-    tagline: 'Ergonomic & Stylish',
-    description:
-      'Precision-engineered modular kitchen solutions that blend high functionality with contemporary aesthetics. Optimized for your workflow.',
-    image: 'https://images.unsplash.com/photo-1556911220-e150213ff7ad?w=800&q=80',
-    tags: ['L-Shaped', 'Island Kitchen', 'Custom Cabinets'],
-  },
-  {
-    icon: Settings2,
-    number: '03',
-    title: 'Aluminium Works',
-    tagline: 'Precision Engineering',
-    description:
-      'Premium aluminium fabrication for windows, doors, and partitions. Durable, sleek, and engineered for modern architectural standards.',
-    image: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&q=80',
-    tags: ['Windows & Doors', 'Partitions', 'Structural'],
-  },
-  {
     icon: Lightbulb,
-    number: '04',
-    title: 'Lighting & Ceilings',
+    number: '01',
+    title: 'POP / Gypsum False Ceiling',
     tagline: 'Ambient Excellence',
-    description:
-      'Custom false ceiling designs integrated with professional lighting solutions to create the perfect mood for every room.',
+    description: 'Custom false ceiling designs integrated with professional lighting solutions to create the perfect mood for every room.',
     image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80',
-    tags: ['False Ceiling', 'LED Solutions', 'Ambient Light'],
-  },
-  {
-    icon: Sofa,
-    number: '05',
-    title: 'Bespoke Furniture',
-    tagline: 'Handcrafted Luxury',
-    description:
-      'Custom-made furniture pieces that fit your space perfectly. From luxury sofas to executive desks, crafted with the finest materials.',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
-    tags: ['Custom Sofa', 'Storage Units', 'Dining Sets'],
+    tags: ['False Ceiling', 'POP', 'Gypsum'],
   },
   {
     icon: LayoutGrid,
+    number: '02',
+    title: 'PVC / WPC / Fluted Panels',
+    tagline: 'Modern Wall Solutions',
+    description: 'Durable and stylish PVC, WPC paneling and Fluted panels for walls and ceilings, providing a contemporary aesthetic.',
+    image: 'https://images.unsplash.com/photo-1620626011761-9963d7521477?w=800&q=80',
+    tags: ['PVC', 'WPC', 'Fluted Panels'],
+  },
+  {
+    icon: Layers,
+    number: '03',
+    title: 'Grid / Thermocol Ceiling',
+    tagline: 'Functional Systems',
+    description: 'Professional grid ceiling and thermocol insulation solutions for commercial and residential utility spaces.',
+    image: 'https://images.unsplash.com/photo-1505691938895-1758d7eaa511?w=800&q=80',
+    tags: ['Grid Ceiling', 'Thermocol', 'Acoustic'],
+  },
+  {
+    icon: PenTool,
+    number: '04',
+    title: 'Wall Moulding & Design',
+    tagline: 'Classical Elegance',
+    description: 'Sophisticated wall moulding and architectural design elements that add character and depth to your interior spaces.',
+    image: 'https://images.unsplash.com/photo-1594904351111-a072f80b1a71?w=800&q=80',
+    tags: ['Moulding', 'Wall Design', 'Elegance'],
+  },
+  {
+    icon: Settings2,
+    number: '05',
+    title: 'Electrical Solutions',
+    tagline: 'Safe & Smart',
+    description: 'Comprehensive electrical planning, wiring, and smart home integration for a safe and functional modern living environment.',
+    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80',
+    tags: ['Wiring', 'Lighting', 'Smart Home'],
+  },
+  {
+    icon: Paintbrush,
     number: '06',
-    title: 'Commercial Design',
-    tagline: 'Productive Workspaces',
-    description:
-      'High-end office and retail interiors designed to boost productivity and reflect your brand identity through professional architecture.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-    tags: ['Office Fit-out', 'Retail Display', 'Reception'],
+    title: 'Professional Painting',
+    tagline: 'Vibrant Finishes',
+    description: 'Expert interior and exterior painting services with premium finishes, textures, and professional color consultations.',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185138a047a?w=800&q=80',
+    tags: ['Interior', 'Exterior', 'Texture'],
+  },
+  {
+    icon: Image,
+    number: '07',
+    title: 'Wallpaper / Customizable',
+    tagline: 'Artistic Walls',
+    description: 'A wide range of customizable wallpaper designs and wall coverings to suit your unique aesthetic and lifestyle.',
+    image: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80',
+    tags: ['Wallpaper', 'Custom Design', 'Artistic'],
+  },
+  {
+    icon: ShieldCheck,
+    number: '08',
+    title: 'Invisible Grills',
+    tagline: 'Safety First',
+    description: 'Modern invisible grill solutions for balconies and windows, providing maximum safety without obstructing your view.',
+    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=800&q=80',
+    tags: ['Safety', 'Balcony', 'Invisible'],
+  },
+  {
+    icon: Home,
+    number: '09',
+    title: 'Complete Wooden Work',
+    tagline: 'Handcrafted Interiors',
+    description: 'End-to-end wooden interior solutions including wardrobes, beds, and bespoke storage units crafted from premium timber.',
+    image: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e8f?w=800&q=80',
+    tags: ['Wardrobes', 'Beds', 'Storage'],
+  },
+  {
+    icon: Utensils,
+    number: '10',
+    title: 'Kitchen Modular Work',
+    tagline: 'Ergonomic Excellence',
+    description: 'State-of-the-art modular kitchen designs optimized for functionality, space efficiency, and modern aesthetics.',
+    image: 'https://images.unsplash.com/photo-1556911220-e150213ff7ad?w=800&q=80',
+    tags: ['Ergonomic', 'Storage', 'Modular'],
   },
 ];
 

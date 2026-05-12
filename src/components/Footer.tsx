@@ -8,15 +8,17 @@ const Footer = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
   ];
 
   const serviceLinks = [
-    'Aluminium Works',
-    'Furniture Contracting',
-    'Interior Design',
-    'Turnkey Solutions',
-    'Space Planning',
+    'POP / Gypsum False Ceiling',
+    'PVC / WPC / Fluted Panels',
+    'Wall Moulding & Design',
+    'Kitchen Modular Work',
+    'Complete Wooden Work',
+    'Electricals & Painting',
   ];
 
   return (
@@ -37,21 +39,12 @@ const Footer = () => {
           
           {/* Brand column */}
           <div className="lg:col-span-2 space-y-6">
-            <Link to="/" className="flex items-center gap-3 w-fit group">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ background: 'var(--gradient-copper)' }}
-              >
-                <span style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 700, fontSize: '1.1rem', color: 'white' }}>N</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span style={{ fontFamily: 'Cormorant Garamond, serif', color: 'hsl(var(--charcoal))', fontSize: '1.15rem', letterSpacing: '0.18em', fontWeight: 300 }}>
-                  NEXLANE
-                </span>
-                <span style={{ fontFamily: 'Space Grotesk, sans-serif', color: 'hsl(var(--copper))', fontSize: '0.58rem', letterSpacing: '0.24em', marginTop: '2px' }}>
-                  INTERIORS
-                </span>
-              </div>
+            <Link to="/" className="group w-fit block">
+              <img 
+                src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1778589282/IMG_20260505_234313_298_nwhxup.webp" 
+                alt="Nexlane Interiors Logo" 
+                className="h-12 w-12 rounded-full object-cover border border-charcoal/5 transition-transform duration-500 group-hover:scale-105"
+              />
             </Link>
 
             <p className="font-body text-sm leading-relaxed max-w-sm text-charcoal/50">
