@@ -129,7 +129,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 lg:py-36 bg-ivory">
+    <section id="services" ref={sectionRef} className="py-24 lg:py-36 bg-ivory dark:bg-charcoal transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Header */}
@@ -140,7 +140,7 @@ const ServicesSection = () => {
               <span className="section-label text-copper">Expertise & Services</span>
             </div>
             <h2
-              className="font-display font-light leading-tight text-charcoal"
+              className="font-display font-light leading-tight text-charcoal dark:text-white"
               style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
             >
               Holistic Interior
@@ -149,7 +149,7 @@ const ServicesSection = () => {
             </h2>
           </div>
           <p
-            className="font-body leading-relaxed max-w-md lg:text-right text-charcoal/60"
+            className="font-body leading-relaxed max-w-md lg:text-right text-charcoal/60 dark:text-white/60"
             style={{ fontSize: '0.95rem' }}
           >
             We provide a comprehensive suite of interior design and contracting services, 
@@ -162,7 +162,7 @@ const ServicesSection = () => {
           {services.map((service, i) => (
             <div
               key={i}
-              className="service-card group relative overflow-hidden rounded-2xl cursor-pointer bg-white shadow-soft hover:shadow-medium transition-all duration-500"
+              className="service-card group relative overflow-hidden rounded-2xl cursor-pointer bg-white dark:bg-white/5 shadow-soft hover:shadow-medium transition-all duration-500"
             >
               {/* Image */}
               <div className="relative h-60 overflow-hidden">
@@ -191,12 +191,12 @@ const ServicesSection = () => {
                 </div>
 
                 <h3
-                  className="font-display font-semibold mb-3 text-xl text-charcoal"
+                  className="font-display font-semibold mb-3 text-xl text-charcoal dark:text-white"
                 >
                   {service.title}
                 </h3>
                 <p
-                  className="font-body text-[0.85rem] leading-relaxed mb-6 text-charcoal/60 h-20 overflow-hidden"
+                  className="font-body text-[0.85rem] leading-relaxed mb-6 text-charcoal/60 dark:text-white/60 h-20 overflow-hidden"
                 >
                   {service.description}
                 </p>
@@ -206,7 +206,7 @@ const ServicesSection = () => {
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="pill bg-ivory text-copper border border-copper/10 text-[0.6rem] px-2 py-0.5"
+                      className="pill bg-ivory dark:bg-charcoal text-copper border border-copper/10 text-[0.6rem] px-2 py-0.5"
                     >
                       {tag}
                     </span>
@@ -214,7 +214,7 @@ const ServicesSection = () => {
                 </div>
 
                 <div
-                  className="flex items-center gap-2 font-grotesk text-[0.7rem] font-bold tracking-widest uppercase text-charcoal/40 transition-colors duration-300 group-hover:text-copper"
+                  className="flex items-center gap-2 font-grotesk text-[0.7rem] font-bold tracking-widest uppercase text-charcoal/40 dark:text-white/40 transition-colors duration-300 group-hover:text-copper"
                 >
                   Learn More
                   <ArrowRight

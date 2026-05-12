@@ -54,17 +54,17 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="overflow-hidden bg-ivory">
+    <section ref={sectionRef} className="overflow-hidden bg-ivory dark:bg-charcoal transition-colors duration-500">
       {/* Marquee strip */}
       <div
-        className="py-5 overflow-hidden border-y bg-white border-copper/10"
+        className="py-5 overflow-hidden border-y bg-white dark:bg-white/5 border-copper/10 dark:border-white/5"
       >
         <div className="marquee-track">
           {[...MARQUEE_BRANDS, ...MARQUEE_BRANDS].map((b, i) => (
             <span
               key={i}
               className="flex items-center gap-6 px-6 font-grotesk text-xs tracking-[0.18em] uppercase whitespace-nowrap"
-              style={{ color: i % 2 === 0 ? 'hsl(var(--copper))' : 'hsl(var(--charcoal)/0.2)' }}
+              style={{ color: i % 2 === 0 ? 'hsl(var(--copper))' : 'hsl(var(--charcoal) / 0.2)' }}
             >
               {b}
               <span className="w-1 h-1 rounded-full bg-copper/20 inline-block" />
@@ -82,7 +82,7 @@ const TestimonialsSection = () => {
             <span className="w-6 h-px bg-copper" />
           </div>
           <h2
-            className="font-display font-light text-charcoal"
+            className="font-display font-light text-charcoal dark:text-white"
             style={{ fontSize: 'clamp(2rem, 4vw, 3.4rem)' }}
           >
             What Our Clients Say
@@ -93,13 +93,13 @@ const TestimonialsSection = () => {
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
-              className="testimonial-card relative p-8 rounded-2xl transition-all duration-500 bg-white shadow-soft border border-copper/5 hover:shadow-medium"
+              className="testimonial-card relative p-8 rounded-2xl transition-all duration-500 bg-white dark:bg-white/5 shadow-soft border border-copper/5 dark:border-white/5 hover:shadow-medium"
             >
               <Quote
                 className="mb-6 w-8 h-8 text-copper/40"
               />
               <p
-                className="font-body leading-relaxed mb-8 text-sm italic text-charcoal/70"
+                className="font-body leading-relaxed mb-8 text-sm italic text-charcoal/70 dark:text-white/70"
               >
                 "{t.quote}"
               </p>
@@ -110,10 +110,10 @@ const TestimonialsSection = () => {
                   className="w-11 h-11 rounded-full object-cover border-2 border-copper/20"
                 />
                 <div>
-                  <div className="font-grotesk font-medium text-sm text-charcoal">
+                  <div className="font-grotesk font-medium text-sm text-charcoal dark:text-white">
                     {t.name}
                   </div>
-                  <div className="font-body text-xs text-charcoal/40">
+                  <div className="font-body text-xs text-charcoal/40 dark:text-white/40">
                     {t.role}
                   </div>
                 </div>

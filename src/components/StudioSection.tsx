@@ -73,7 +73,7 @@ const StudioSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="overflow-hidden bg-white">
+    <section ref={sectionRef} className="overflow-hidden bg-white dark:bg-charcoal transition-colors duration-500">
       {/* ── Studio Intro ── */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-36">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -84,22 +84,22 @@ const StudioSection = () => {
             </div>
 
             <h2
-              className="font-display font-light leading-tight text-charcoal"
+              className="font-display font-light leading-tight text-charcoal dark:text-white"
               style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)' }}
             >
               Redefining the Art of{' '}
               <span className="italic" style={{ color: 'hsl(var(--copper))' }}>Spatial Design</span>
             </h2>
 
-            <p className="font-body leading-relaxed text-charcoal/60" style={{ fontSize: '1rem' }}>
+            <p className="font-body leading-relaxed text-charcoal/60 dark:text-white/60" style={{ fontSize: '1rem' }}>
               Welcome to Nexlane Interiors, where creativity meets functionality to transform everyday spaces into modern, elegant interiors.
             </p>
 
-            <p className="font-body leading-relaxed text-charcoal/60" style={{ fontSize: '1rem' }}>
+            <p className="font-body leading-relaxed text-charcoal/60 dark:text-white/60" style={{ fontSize: '1rem' }}>
               We specialize in false ceiling solutions, wall moulding, PVC/WPVC works, custom wall designs, and complete interior execution tailored to suit every lifestyle and budget. Our goal is to create spaces that not only look premium but also feel comfortable, practical, and timeless.
             </p>
 
-            <p className="font-body leading-relaxed text-charcoal/60" style={{ fontSize: '1rem' }}>
+            <p className="font-body leading-relaxed text-charcoal/60 dark:text-white/60" style={{ fontSize: '1rem' }}>
               At Nexlane Interiors, we believe every space has the potential to stand out. From contemporary ceiling concepts to detailed finishing touches, we focus on quality craftsmanship, clean execution, and modern design aesthetics.
             </p>
 
@@ -107,7 +107,7 @@ const StudioSection = () => {
               {WHY_US.map((item) => (
                 <div key={item} className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-copper" />
-                  <span className="font-body text-sm text-charcoal/75">
+                  <span className="font-body text-sm text-charcoal/75 dark:text-white/75">
                     {item}
                   </span>
                 </div>
@@ -116,14 +116,14 @@ const StudioSection = () => {
           </div>
 
           <div ref={rightRef} className="relative h-[520px] lg:h-[580px]">
-            <div className="absolute inset-0 top-8 left-8 rounded-2xl overflow-hidden shadow-hard bg-ivory">
+            <div className="absolute inset-0 top-8 left-8 rounded-2xl overflow-hidden shadow-hard bg-ivory dark:bg-white/5">
               <img
                 src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80"
                 alt="Our studio work"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 rounded-2xl overflow-hidden shadow-hard border-4 border-white">
+            <div className="absolute bottom-0 left-0 w-48 h-48 rounded-2xl overflow-hidden shadow-hard border-4 border-white dark:border-charcoal">
               <img
                 src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=400&q=80"
                 alt="Interior detail"
@@ -131,9 +131,9 @@ const StudioSection = () => {
               />
             </div>
 
-            <div className="absolute top-0 right-0 px-6 py-5 rounded-2xl shadow-medium bg-charcoal w-[160px]">
-              <div className="stat-number text-4xl font-display font-light text-copper-light">27+</div>
-              <div className="font-body text-xs mt-1 text-white/50">Years of Excellence</div>
+            <div className="absolute top-0 right-0 px-6 py-5 rounded-2xl shadow-medium bg-charcoal dark:bg-white w-[160px]">
+              <div className="stat-number text-4xl font-display font-light text-copper-light dark:text-copper">27+</div>
+              <div className="font-body text-xs mt-1 text-white/50 dark:text-charcoal/50">Years of Excellence</div>
             </div>
 
             <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full border-2 animate-spin-slow pointer-events-none border-copper/10" />
@@ -142,7 +142,7 @@ const StudioSection = () => {
       </div>
 
       {/* ── Process ── */}
-      <div ref={processRef} className="py-20 lg:py-28 bg-ivory">
+      <div ref={processRef} className="py-20 lg:py-28 bg-ivory dark:bg-charcoal-dark transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-5">
@@ -151,7 +151,7 @@ const StudioSection = () => {
               <span className="w-6 h-px bg-copper" />
             </div>
             <h2
-              className="font-display font-light text-charcoal"
+              className="font-display font-light text-charcoal dark:text-white"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
             >
               How We Work
@@ -162,7 +162,7 @@ const StudioSection = () => {
             {PROCESS_STEPS.map((step, i) => (
               <div
                 key={i}
-                className="process-step relative p-8 rounded-2xl group transition-all duration-400 hover:-translate-y-2 bg-white shadow-soft"
+                className="process-step relative p-8 rounded-2xl group transition-all duration-400 hover:-translate-y-2 bg-white dark:bg-white/5 shadow-soft"
               >
                 {i < PROCESS_STEPS.length - 1 && (
                   <div className="absolute top-14 right-0 w-6 h-px hidden lg:block translate-x-3 bg-copper/20" />
@@ -170,10 +170,10 @@ const StudioSection = () => {
                 <div className="font-display text-5xl font-light mb-4 text-copper/20">
                   {step.num}
                 </div>
-                <h3 className="font-display font-semibold mb-3 text-xl text-charcoal">
+                <h3 className="font-display font-semibold mb-3 text-xl text-charcoal dark:text-white">
                   {step.title}
                 </h3>
-                <p className="font-body text-sm leading-relaxed text-charcoal/50">
+                <p className="font-body text-sm leading-relaxed text-charcoal/50 dark:text-white/50">
                   {step.desc}
                 </p>
                 <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-copper/10 transition-all duration-400 pointer-events-none" />

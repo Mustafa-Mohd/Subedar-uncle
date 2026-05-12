@@ -59,7 +59,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="bg-ivory text-charcoal selection:bg-copper selection:text-white min-h-screen">
+    <div className="bg-ivory dark:bg-charcoal text-charcoal dark:text-white selection:bg-copper selection:text-white min-h-screen transition-colors duration-500">
       <Navigation />
       
       <main className="pt-32 pb-20 px-6 lg:px-10">
@@ -73,11 +73,11 @@ const Gallery = () => {
               <span className="w-8 h-px bg-copper" />
             </div>
             
-            <h1 className="font-display font-light mb-8 text-charcoal" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', lineHeight: 1.1 }}>
+            <h1 className="font-display font-light mb-8 text-charcoal dark:text-white" style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', lineHeight: 1.1 }}>
               Project <span className="italic" style={{ color: 'hsl(var(--copper))' }}>Gallery</span>
             </h1>
             
-            <p className="font-body text-lg leading-relaxed max-w-2xl mx-auto text-charcoal/60">
+            <p className="font-body text-lg leading-relaxed max-w-2xl mx-auto text-charcoal/60 dark:text-white/60">
               A curated collection of our finest works across residential and commercial spaces. 
               Witness the precision and artistry we bring to every project.
             </p>
@@ -89,7 +89,7 @@ const Gallery = () => {
               {GALLERY_IMAGES.map((src, index) => (
                 <motion.div
                   key={index}
-                  className="gallery-item relative aspect-square overflow-hidden rounded-2xl group cursor-pointer bg-white border border-ivory-dark shadow-soft hover:shadow-hard transition-shadow duration-500"
+                  className="gallery-item relative aspect-square overflow-hidden rounded-2xl group cursor-pointer bg-white dark:bg-white/5 border border-ivory-dark dark:border-white/5 shadow-soft hover:shadow-hard transition-all duration-500"
                   whileHover={{ y: -5 }}
                   onClick={() => setSelectedImage(src)}
                 >
@@ -108,8 +108,8 @@ const Gallery = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-32 bg-white rounded-3xl border border-ivory-dark shadow-soft">
-              <p className="font-body text-charcoal/40 italic">
+            <div className="text-center py-32 bg-white dark:bg-white/5 rounded-3xl border border-ivory-dark dark:border-white/5 shadow-soft">
+              <p className="font-body text-charcoal/40 dark:text-white/40 italic">
                 Our portfolio is currently being updated with our latest projects. <br />
                 Please check back soon to see our recent work.
               </p>

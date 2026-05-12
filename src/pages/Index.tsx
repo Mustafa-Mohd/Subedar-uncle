@@ -14,7 +14,7 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="bg-ivory text-charcoal selection:bg-copper selection:text-white">
+    <div className="bg-ivory dark:bg-charcoal text-charcoal dark:text-white selection:bg-copper selection:text-white transition-colors duration-500">
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
       <div className={`min-h-screen transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>

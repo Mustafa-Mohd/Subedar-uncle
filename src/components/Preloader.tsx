@@ -55,11 +55,10 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   return (
     <div
       ref={preloaderRef}
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-      style={{ background: 'hsl(var(--ivory))' }}
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-ivory dark:bg-charcoal transition-colors duration-500"
     >
       {/* Noise texture */}
-      <div className="absolute inset-0 opacity-[0.04]"
+      <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.08]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
@@ -83,21 +82,21 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         {/* Separator line */}
         <div
           ref={lineRef}
-          style={{ width: '180px', height: '1px', background: 'hsl(var(--copper)/0.2)', margin: '0 auto 1.5rem' }}
+          className="w-[180px] h-[1px] bg-copper/20 mx-auto mb-6"
         />
 
         {/* Progress bar */}
         <div
-          style={{ width: '180px', height: '2px', background: 'hsl(var(--charcoal)/0.05)', margin: '0 auto', borderRadius: '99px', overflow: 'hidden' }}
+          className="w-[180px] h-[2px] bg-charcoal/5 dark:bg-white/5 mx-auto rounded-full overflow-hidden"
         >
           <div
             ref={progressRef}
-            style={{ height: '100%', background: 'var(--gradient-copper)', borderRadius: '99px' }}
+            className="h-full bg-gradient-to-r from-copper to-copper-light rounded-full"
           />
         </div>
 
         <p
-          style={{ fontFamily: 'Space Grotesk, sans-serif', color: 'hsl(var(--charcoal)/0.35)', fontSize: '0.65rem', letterSpacing: '0.2em', marginTop: '2rem' }}
+          className="font-grotesk text-[0.65rem] tracking-[0.2em] uppercase mt-8 text-charcoal/35 dark:text-white/35"
         >
           REDEFINING LIVING SPACES
         </p>
@@ -106,8 +105,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       {/* Slide-out overlay */}
       <div
         ref={overlayRef}
-        className="absolute inset-0"
-        style={{ background: 'hsl(var(--copper)/0.04)' }}
+        className="absolute inset-0 bg-copper/[0.04]"
       />
     </div>
   );

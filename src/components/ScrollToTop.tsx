@@ -39,7 +39,7 @@ const ScrollToTop = () => {
     >
       <button
         onClick={scrollToTop}
-        className="group relative w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-hard border border-ivory-dark overflow-hidden transition-transform active:scale-90"
+        className="group relative w-14 h-14 rounded-full bg-white dark:bg-charcoal flex items-center justify-center shadow-hard border border-ivory-dark dark:border-white/5 overflow-hidden transition-all active:scale-90"
         aria-label="Scroll to top"
       >
         <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none">
@@ -48,8 +48,9 @@ const ScrollToTop = () => {
             cy="28"
             r={radius}
             fill="transparent"
-            stroke="hsl(var(--charcoal)/0.05)"
+            stroke="currentColor"
             strokeWidth="2"
+            className="text-charcoal/[0.05] dark:text-white/[0.05]"
           />
           <circle
             cx="28"
@@ -65,10 +66,10 @@ const ScrollToTop = () => {
           />
         </svg>
 
-        <ArrowUp className="w-5 h-5 text-charcoal group-hover:text-copper transition-colors duration-300 transform group-hover:-translate-y-1" />
+        <ArrowUp className="w-5 h-5 text-charcoal dark:text-white group-hover:text-copper transition-colors duration-300 transform group-hover:-translate-y-1" />
         
-        <div className="absolute right-full mr-4 px-3 py-1.5 bg-white border border-ivory-dark rounded-lg opacity-0 translate-x-[10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-medium">
-          <span className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/80">Scroll to top</span>
+        <div className="absolute right-full mr-4 px-3 py-1.5 bg-white dark:bg-charcoal border border-ivory-dark dark:border-white/5 rounded-lg opacity-0 translate-x-[10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-medium">
+          <span className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/80 dark:text-white/80">Scroll to top</span>
         </div>
       </button>
     </div>

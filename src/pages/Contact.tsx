@@ -60,12 +60,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-ivory text-charcoal selection:bg-copper selection:text-white min-h-screen">
+    <div className="bg-ivory dark:bg-charcoal text-charcoal dark:text-white selection:bg-copper selection:text-white min-h-screen transition-colors duration-500">
       <Navigation />
 
       <main className="pt-20">
         {/* Contact Hero */}
-        <section className="relative py-24 lg:py-32 overflow-hidden bg-white">
+        <section className="relative py-24 lg:py-32 overflow-hidden bg-white dark:bg-charcoal transition-colors duration-500">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
@@ -76,42 +76,42 @@ const Contact = () => {
                     <span className="w-8 h-px bg-copper" />
                     <span className="section-label text-copper">Get in Touch</span>
                   </div>
-                  <h1 className="font-display font-light mb-8 text-charcoal" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.1 }}>
+                  <h1 className="font-display font-light mb-8 text-charcoal dark:text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.1 }}>
                     Let's Build Your <br />
                     <span className="italic" style={{ color: 'hsl(var(--copper))' }}>Vision</span> Together
                   </h1>
-                  <p className="font-body text-lg leading-relaxed max-w-md text-charcoal/60">
+                  <p className="font-body text-lg leading-relaxed max-w-md text-charcoal/60 dark:text-white/60">
                     Nexlane Interiors is dedicated to transforming spaces with precision and style.
                     Reach out to our principal consultant for a bespoke project discussion.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  <div className="p-6 rounded-2xl bg-ivory border border-charcoal/5 shadow-soft">
+                  <div className="p-6 rounded-2xl bg-ivory dark:bg-white/5 border border-charcoal/5 dark:border-white/5 shadow-soft">
                     <div className="w-10 h-10 rounded-xl bg-copper/10 flex items-center justify-center text-copper mb-4">
                       <User className="w-5 h-5" />
                     </div>
-                    <h3 className="font-grotesk text-[0.6rem] tracking-widest uppercase text-charcoal/40 mb-1">Contact Person</h3>
-                    <p className="font-display text-xl text-charcoal">Ansar Ahmed</p>
+                    <h3 className="font-grotesk text-[0.6rem] tracking-widest uppercase text-charcoal/40 dark:text-white/40 mb-1">Contact Person</h3>
+                    <p className="font-display text-xl text-charcoal dark:text-white">Ansar Ahmed</p>
                   </div>
 
-                  <div className="p-6 rounded-2xl bg-ivory border border-charcoal/5 shadow-soft">
+                  <div className="p-6 rounded-2xl bg-ivory dark:bg-white/5 border border-charcoal/5 dark:border-white/5 shadow-soft">
                     <div className="w-10 h-10 rounded-xl bg-copper/10 flex items-center justify-center text-copper mb-4">
                       <Phone className="w-5 h-5" />
                     </div>
-                    <h3 className="font-grotesk text-[0.6rem] tracking-widest uppercase text-charcoal/40 mb-1">Phone & WhatsApp</h3>
-                    <a href="tel:+919118861979" className="font-display text-xl text-charcoal hover:text-copper transition-colors">+91 91188 61979</a>
+                    <h3 className="font-grotesk text-[0.6rem] tracking-widest uppercase text-charcoal/40 dark:text-white/40 mb-1">Phone & WhatsApp</h3>
+                    <a href="tel:+919118861979" className="font-display text-xl text-charcoal dark:text-white hover:text-copper dark:hover:text-copper transition-colors">+91 91188 61979</a>
                   </div>
                 </div>
 
                 <div className="pt-4">
-                  <h3 className="font-grotesk text-xs tracking-widest uppercase text-charcoal/40 mb-6">Connect with Nexlane</h3>
+                  <h3 className="font-grotesk text-xs tracking-widest uppercase text-charcoal/40 dark:text-white/40 mb-6">Connect with Nexlane</h3>
                   <div className="flex gap-4">
                     {['Instagram', 'LinkedIn'].map((platform) => (
                       <a
                         key={platform}
                         href="#"
-                        className="px-6 py-2 rounded-full border border-ivory-dark font-body text-sm hover:bg-copper hover:border-copper hover:text-white transition-all text-charcoal/70"
+                        className="px-6 py-2 rounded-full border border-ivory-dark dark:border-white/10 font-body text-sm hover:bg-copper hover:border-copper hover:text-white transition-all text-charcoal/70 dark:text-white/70"
                       >
                         {platform}
                       </a>
@@ -123,14 +123,14 @@ const Contact = () => {
               {/* Right: Form */}
               <div className="relative">
                 <div className="absolute inset-0 bg-copper/5 blur-3xl rounded-full" />
-                <div className="relative bg-ivory p-8 lg:p-12 rounded-3xl border border-ivory-dark shadow-medium">
+                <div className="relative bg-ivory dark:bg-white/5 p-8 lg:p-12 rounded-3xl border border-ivory-dark dark:border-white/10 shadow-medium">
                   {submitted ? (
                     <div className="py-20 text-center space-y-6">
                       <div className="w-20 h-20 bg-copper/10 rounded-full flex items-center justify-center mx-auto">
                         <Send className="w-8 h-8 text-copper" />
                       </div>
-                      <h2 className="font-display text-3xl text-charcoal">Thank You!</h2>
-                      <p className="font-body text-charcoal/60">Your message has been sent. Ansar Ahmed will contact you shortly.</p>
+                      <h2 className="font-display text-3xl text-charcoal dark:text-white">Thank You!</h2>
+                      <p className="font-body text-charcoal/60 dark:text-white/60">Your message has been sent. Ansar Ahmed will contact you shortly.</p>
                       <button
                         onClick={() => setSubmitted(false)}
                         className="text-copper font-grotesk text-sm tracking-widest uppercase border-b border-copper"
@@ -142,7 +142,7 @@ const Contact = () => {
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40">Full Name</label>
+                          <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40 dark:text-white/40">Full Name</label>
                           <input
                             required
                             type="text"
@@ -150,11 +150,11 @@ const Contact = () => {
                             value={formData.name}
                             onChange={handleInputChange}
                             placeholder="Your Name"
-                            className="w-full bg-white border-b border-ivory-dark py-3 focus:border-copper outline-none transition-colors font-body text-charcoal"
+                            className="w-full bg-white dark:bg-charcoal border-b border-ivory-dark dark:border-white/10 py-3 focus:border-copper outline-none transition-colors font-body text-charcoal dark:text-white"
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40">Email Address</label>
+                          <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40 dark:text-white/40">Email Address</label>
                           <input
                             required
                             type="email"
@@ -162,18 +162,18 @@ const Contact = () => {
                             value={formData.email}
                             onChange={handleInputChange}
                             placeholder="email@example.com"
-                            className="w-full bg-white border-b border-ivory-dark py-3 focus:border-copper outline-none transition-colors font-body text-charcoal"
+                            className="w-full bg-white dark:bg-charcoal border-b border-ivory-dark dark:border-white/10 py-3 focus:border-copper outline-none transition-colors font-body text-charcoal dark:text-white"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40">Subject</label>
+                        <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40 dark:text-white/40">Subject</label>
                         <select
                           name="subject"
                           value={formData.subject}
                           onChange={handleInputChange}
-                          className="w-full bg-white border-b border-ivory-dark py-3 focus:border-copper outline-none transition-colors font-body text-charcoal appearance-none"
+                          className="w-full bg-white dark:bg-charcoal border-b border-ivory-dark dark:border-white/10 py-3 focus:border-copper outline-none transition-colors font-body text-charcoal dark:text-white appearance-none"
                         >
                           <option>General Inquiry</option>
                           <option>Project Consultation</option>
@@ -183,7 +183,7 @@ const Contact = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40">Message</label>
+                        <label className="font-grotesk text-[10px] tracking-widest uppercase text-charcoal/40 dark:text-white/40">Message</label>
                         <textarea
                           required
                           name="message"
@@ -191,12 +191,12 @@ const Contact = () => {
                           onChange={handleInputChange}
                           rows={4}
                           placeholder="Tell us about your project..."
-                          className="w-full bg-white border-b border-ivory-dark py-3 focus:border-copper outline-none transition-colors font-body text-charcoal resize-none"
+                          className="w-full bg-white dark:bg-charcoal border-b border-ivory-dark dark:border-white/10 py-3 focus:border-copper outline-none transition-colors font-body text-charcoal dark:text-white resize-none"
                         />
                       </div>
 
                       {error && (
-                        <div className="p-4 rounded-xl bg-red-50 text-red-600 text-xs font-grotesk tracking-wide text-center">
+                        <div className="p-4 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-grotesk tracking-wide text-center">
                           {error}
                         </div>
                       )}
@@ -217,14 +217,14 @@ const Contact = () => {
           </div>
         </section>
 
-        <section className="py-24 bg-ivory">
+        <section className="py-24 bg-ivory dark:bg-charcoal-dark transition-colors duration-500">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
             <div className="max-w-2xl mx-auto">
-              <h2 className="font-display font-light text-3xl text-charcoal mb-6">
+              <h2 className="font-display font-light text-3xl text-charcoal dark:text-white mb-6">
                 Nexlane Interiors <br />
                 <span className="italic" style={{ color: 'hsl(var(--copper))' }}>Craftsmanship & Quality</span>
               </h2>
-              <p className="font-body text-charcoal/60 leading-relaxed">
+              <p className="font-body text-charcoal/60 dark:text-white/60 leading-relaxed">
                 We are committed to delivering high-quality interior solutions across the region.
                 Our focus remains on precision aluminium work and bespoke furniture design.
               </p>
