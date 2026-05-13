@@ -533,7 +533,7 @@ export default function Story() {
         floor: new THREE.MeshStandardMaterial({ color: 0x1a1008, roughness: 0.18, metalness: 0.35 }),
         marble: new THREE.MeshStandardMaterial({ color: 0x1f1812, roughness: 0.12, metalness: 0.42 }),
         wood: new THREE.MeshStandardMaterial({ color: 0x2d1a08, roughness: 0.65, metalness: 0.1 }),
-        velvet: new THREE.MeshStandardMaterial({ color: 0x3d2810, roughness: 0.95, metalness: 0.01 }),
+        velvet: new THREE.MeshStandardMaterial({ color: 0x6b4a28, roughness: 0.9, metalness: 0.05 }),
         neon: new THREE.MeshBasicMaterial({ color: 0x0066ff }),
         brass: new THREE.MeshStandardMaterial({ color: 0xb8860b, roughness: 0.3, metalness: 0.8 }),
       };
@@ -580,6 +580,11 @@ export default function Story() {
       box(5.5, 0.38, 1.6, M.velvet, 0, -0.4, -2.6);
       box(0.28, 0.65, 1.6, M.velvet, -2.9, -0.07, -2.6);
       box(0.28, 0.65, 1.6, M.velvet, 2.9, -0.07, -2.6);
+      
+      const sofaLight = new THREE.PointLight(0xffddaa, 2.5, 10);
+      sofaLight.position.set(0, 2.5, -2);
+      scene.add(sofaLight);
+
       [[-1.8, -0.15, -2.55], [-0.2, -0.15, -2.55], [1.4, -0.15, -2.55]].forEach(([x, y, z]) => {
         box(1.2, 0.4, 0.9, new THREE.MeshStandardMaterial({ color: 0x5a3d1a, roughness: 0.9 }), x, y, z);
       });

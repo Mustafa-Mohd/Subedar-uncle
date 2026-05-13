@@ -303,4 +303,28 @@
   .story-page .s4-grid{grid-template-columns:1fr}
   .story-page .holo-grid{flex-wrap:wrap}
   .story-page .footer-strip{flex-direction:column;gap:2rem;text-align:center}
+  
+  .story-page .ftag {
+    padding: 0.5rem 0.8rem;
+    min-width: 120px;
+  }
+  .story-page .ftag-label {
+    font-size: 0.45rem;
+    margin-bottom: 0.2rem;
+  }
+  .story-page .ftag-val {
+    font-size: 0.6rem;
+  }
+  .story-page .ftag-sub {
+    font-size: 0.45rem;
+    margin-top: 0.1rem;
+  }
+  .story-page .ft1 {
+    top: 5% !important;
+    left: 5% !important;
+  }
+  .story-page .ft2 {
+    bottom: 5% !important;
+    right: 5% !important;
+  }
 }
