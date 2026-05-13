@@ -10,21 +10,29 @@ const PROCESS_STEPS = [
     num: '01',
     title: 'Discovery & Brief',
     desc: 'We begin with an in-depth consultation to understand your vision, lifestyle, and requirements.',
+    colorClass: 'from-amber-100 to-orange-50 dark:from-amber-100 dark:to-orange-50 border-amber-200/60 dark:border-amber-300/60 text-amber-900 dark:text-black',
+    numColor: 'text-amber-500/30 dark:text-amber-500/40'
   },
   {
     num: '02',
     title: 'Concept Design',
     desc: 'Our team develops mood boards, space plans, and 3D visualisations tailored to your aesthetic.',
+    colorClass: 'from-emerald-100 to-teal-50 dark:from-emerald-100 dark:to-teal-50 border-emerald-200/60 dark:border-emerald-300/60 text-emerald-900 dark:text-black',
+    numColor: 'text-emerald-500/30 dark:text-emerald-500/40'
   },
   {
     num: '03',
     title: 'Execution',
     desc: 'Skilled craftsmen bring the design to life with precision — on time and to specification.',
+    colorClass: 'from-blue-100 to-indigo-50 dark:from-blue-100 dark:to-indigo-50 border-blue-200/60 dark:border-blue-300/60 text-blue-900 dark:text-black',
+    numColor: 'text-blue-500/30 dark:text-blue-500/40'
   },
   {
     num: '04',
     title: 'Handover',
     desc: 'We deliver a fully styled, move-in-ready space that exceeds every expectation.',
+    colorClass: 'from-rose-100 to-pink-50 dark:from-rose-100 dark:to-pink-50 border-rose-200/60 dark:border-rose-300/60 text-rose-900 dark:text-black',
+    numColor: 'text-rose-500/30 dark:text-rose-500/40'
   },
 ];
 
@@ -142,7 +150,7 @@ const StudioSection = () => {
       </div>
 
       {/* ── Process ── */}
-      <div ref={processRef} className="py-20 lg:py-28 bg-ivory dark:bg-charcoal-dark transition-colors duration-500">
+      <div ref={processRef} className="py-20 lg:py-28 bg-ivory dark:bg-charcoal transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-5">
@@ -162,21 +170,21 @@ const StudioSection = () => {
             {PROCESS_STEPS.map((step, i) => (
               <div
                 key={i}
-                className="process-step relative p-8 rounded-2xl group transition-all duration-400 hover:-translate-y-2 bg-white dark:bg-white/5 shadow-soft"
+                className={`process-step relative p-8 rounded-2xl group transition-all duration-400 hover:-translate-y-2 shadow-soft bg-gradient-to-br border ${step.colorClass}`}
               >
                 {i < PROCESS_STEPS.length - 1 && (
                   <div className="absolute top-14 right-0 w-6 h-px hidden lg:block translate-x-3 bg-copper/20" />
                 )}
-                <div className="font-display text-5xl font-light mb-4 text-copper/20">
+                <div className={`font-display text-5xl font-light mb-4 transition-colors ${step.numColor} group-hover:text-copper/40`}>
                   {step.num}
                 </div>
-                <h3 className="font-display font-semibold mb-3 text-xl text-charcoal dark:text-white">
+                <h3 className="font-display font-semibold mb-3 text-xl text-inherit">
                   {step.title}
                 </h3>
-                <p className="font-body text-sm leading-relaxed text-charcoal/50 dark:text-white/50">
+                <p className="font-body text-sm leading-relaxed opacity-80 text-inherit">
                   {step.desc}
                 </p>
-                <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-copper/10 transition-all duration-400 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-copper/20 transition-all duration-400 pointer-events-none" />
               </div>
             ))}
           </div>
