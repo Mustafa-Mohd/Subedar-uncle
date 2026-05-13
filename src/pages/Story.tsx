@@ -891,7 +891,7 @@ export default function Story() {
 
   return (
     <div className="dark">
-      <div className="story-page" ref={containerRef}>
+      <div className="story-page">
         <Navigation />
         <div dangerouslySetInnerHTML={{ __html: storyHTML }} />
       </div>
