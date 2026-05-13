@@ -9,6 +9,7 @@ import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import Story from "./pages/Story";
 import ScrollToTopOnNavigate from "./components/ScrollToTopOnNavigate";
 
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/story" element={<Story />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
