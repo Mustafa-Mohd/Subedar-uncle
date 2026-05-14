@@ -42,83 +42,100 @@ const HeroSection = () => {
       />
 
       {/* Main Content Layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-center h-full pt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-center min-h-screen py-20 lg:py-0">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mt-10 lg:mt-0">
           
           {/* Left Column: Typography */}
-          <div className="lg:col-span-8 xl:col-span-7">
+          <div className="lg:col-span-7 xl:col-span-7 text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
                 <span className="w-10 h-px bg-copper" />
-                <span className="font-grotesk text-[0.7rem] tracking-[0.4em] uppercase text-ivory/80 font-bold">
+                <span className="font-grotesk text-[0.6rem] lg:text-[0.7rem] tracking-[0.4em] uppercase text-ivory/80 font-bold">
                   Est. 1997 • Bespoke Interiors
                 </span>
               </div>
 
               <h1 
-                className="font-display text-white leading-[1.1] mb-8"
-                style={{ fontSize: 'clamp(2.5rem, 6vw, 4.8rem)' }}
+                className="font-display text-white leading-[1.1] mb-6 lg:mb-8"
+                style={{ fontSize: 'clamp(2.2rem, 8vw, 4.8rem)' }}
               >
                 Crafting Spaces That <br />
                 <span className="italic font-light text-copper-light">Define Your Legacy</span>
               </h1>
 
-              <p className="font-body text-ivory/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl">
+              <p className="font-body text-ivory/70 text-base lg:text-xl leading-relaxed mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0">
                 Nexlane Interiors merges architectural precision with luxury artistry to create 
                 living environments that are as unique as your own story.
               </p>
 
-              <div className="flex flex-wrap gap-5">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-5">
                 <Link
                   to="/gallery"
-                  className="group relative flex items-center gap-3 px-10 py-5 bg-charcoal text-white rounded-xl overflow-hidden transition-all duration-500 hover:shadow-hard"
+                  className="w-full sm:w-auto group relative flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-charcoal text-white rounded-xl overflow-hidden transition-all duration-500 hover:shadow-hard"
                 >
-                  <span className="relative z-10 font-grotesk text-[0.8rem] tracking-widest uppercase font-bold">Discover Collection</span>
+                  <span className="relative z-10 font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold">Discover Collection</span>
                   <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
                 </Link>
 
                 <Link
                   to="/contact"
-                  className="group flex items-center gap-3 px-10 py-5 bg-ivory-dark/40 backdrop-blur-md border border-charcoal/10 text-charcoal rounded-xl transition-all duration-500 hover:bg-ivory-dark/60"
+                  className="w-full sm:w-auto group flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-ivory-dark/40 backdrop-blur-md border border-charcoal/10 text-charcoal rounded-xl transition-all duration-500 hover:bg-ivory-dark/60"
                 >
-                  <span className="font-grotesk text-[0.8rem] tracking-widest uppercase font-bold text-charcoal/80">Start Consultation</span>
+                  <span className="font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold text-charcoal/80">Start Consultation</span>
                 </Link>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Floating Visual Element (Stats Cards) */}
-          <div className="hidden lg:flex lg:col-span-4 xl:col-span-5 justify-end">
-            <div className="flex flex-col gap-6">
+          {/* Right Column: 3D Furniture Model & Counters */}
+          <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="w-full aspect-square max-w-[300px] lg:max-w-[450px] relative mb-8 lg:mb-12"
+            >
+              {/* @ts-ignore - model-viewer is a custom element */}
+              <model-viewer
+                src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/SheenChair/glTF-Binary/SheenChair.glb"
+                alt="Luxury Furniture Model"
+                auto-rotate
+                camera-controls
+                shadow-intensity="2"
+                environment-image="neutral"
+                exposure="1.5"
+                interaction-prompt="auto"
+                style={{ width: '100%', height: '100%', backgroundColor: 'transparent', cursor: 'grab' }}
+              >
+              </model-viewer>
+              
+              {/* Subtle background glow behind the model */}
+              <div className="absolute inset-0 bg-copper/5 blur-[60px] lg:blur-[100px] rounded-full -z-10" />
+            </motion.div>
+
+            {/* Counters Row */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex items-center gap-6 lg:gap-12 w-full justify-center border-t border-white/10 pt-6 lg:pt-8"
+            >
               {stats.map((stat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 + i * 0.15, ease: 'easeOut' }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                  className="group relative bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl w-64 lg:w-72 shadow-hard overflow-hidden"
-                >
-                  {/* Glass highlight effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="flex items-center gap-4 relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-copper/20 flex items-center justify-center text-copper">
-                      <stat.icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <div className="font-display text-2xl text-white font-medium">{stat.value}</div>
-                      <div className="font-grotesk text-[0.6rem] tracking-widest uppercase text-ivory/50">{stat.sub}</div>
-                    </div>
+                <div key={i} className="text-center group">
+                  <div className="font-display text-xl lg:text-3xl text-white font-light mb-1 group-hover:text-copper transition-colors duration-300">
+                    {stat.value}
                   </div>
-                </motion.div>
+                  <div className="font-grotesk text-[0.5rem] lg:text-[0.6rem] tracking-[0.2em] uppercase text-ivory/40 whitespace-nowrap">
+                    {stat.sub.split(' ')[0]} <br className="hidden lg:block" /> {stat.sub.split(' ').slice(1).join(' ')}
+                  </div>
+                </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

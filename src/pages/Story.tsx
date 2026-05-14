@@ -257,6 +257,7 @@ const storyHTML = `
         <div class="serv-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <div class="serv-name">Residential Design</div>
         <div class="serv-desc">Complete turnkey transformation of private homes — from concept boards to final white-glove installation.</div>
+        <a href="https://wa.me/919118861979?text=Hello Ansar Ahmed, I'm interested in your Residential Design service." target="_blank" class="serv-wa-link" title="Contact on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.5 8.5 0 0 1 8.5 8.5c0 1.2-.3 2.3-.9 3.3L21 21l-5.6-1.1z"/></svg></a>
         <div class="serv-arrow"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         <div class="serv-bar"></div>
       </div>
@@ -265,6 +266,7 @@ const storyHTML = `
         <div class="serv-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
         <div class="serv-name">Commercial Spaces</div>
         <div class="serv-desc">Offices, showrooms, and retail environments that command attention and convert visitors into believers.</div>
+        <a href="https://wa.me/919118861979?text=Hello Ansar Ahmed, I'm interested in your Commercial Spaces service." target="_blank" class="serv-wa-link" title="Contact on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.5 8.5 0 0 1 8.5 8.5c0 1.2-.3 2.3-.9 3.3L21 21l-5.6-1.1z"/></svg></a>
         <div class="serv-arrow"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         <div class="serv-bar"></div>
       </div>
@@ -273,6 +275,7 @@ const storyHTML = `
         <div class="serv-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
         <div class="serv-name">Luxury Hospitality</div>
         <div class="serv-desc">Hotels, resorts, and spas that transcend accommodation — immersive environments guests never want to leave.</div>
+        <a href="https://wa.me/919118861979?text=Hello Ansar Ahmed, I'm interested in your Luxury Hospitality service." target="_blank" class="serv-wa-link" title="Contact on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.5 8.5 0 0 1 8.5 8.5c0 1.2-.3 2.3-.9 3.3L21 21l-5.6-1.1z"/></svg></a>
         <div class="serv-arrow"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         <div class="serv-bar"></div>
       </div>
@@ -281,6 +284,7 @@ const storyHTML = `
         <div class="serv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 1 4.93 19.07"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
         <div class="serv-name">Lighting Design</div>
         <div class="serv-desc">Bespoke illumination strategies that sculpt atmosphere — from warm intimate glows to dramatic architectural statements.</div>
+        <a href="https://wa.me/919118861979?text=Hello Ansar Ahmed, I'm interested in your Lighting Design service." target="_blank" class="serv-wa-link" title="Contact on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.5 8.5 0 0 1 8.5 8.5c0 1.2-.3 2.3-.9 3.3L21 21l-5.6-1.1z"/></svg></a>
         <div class="serv-arrow"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         <div class="serv-bar"></div>
       </div>
@@ -289,6 +293,7 @@ const storyHTML = `
         <div class="serv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div class="serv-name">Material Curation</div>
         <div class="serv-desc">Global sourcing of rare stones, exotic woods, heritage textiles, and artisanal finishes from master craftspeople.</div>
+        <a href="https://wa.me/919118861979?text=Hello Ansar Ahmed, I'm interested in your Material Curation service." target="_blank" class="serv-wa-link" title="Contact on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.5 8.5 0 0 1 8.5 8.5c0 1.2-.3 2.3-.9 3.3L21 21l-5.6-1.1z"/></svg></a>
         <div class="serv-arrow"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         <div class="serv-bar"></div>
       </div>
@@ -297,6 +302,7 @@ const storyHTML = `
         <div class="serv-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <div class="serv-name">Bespoke Furniture</div>
         <div class="serv-desc">Custom-designed, handcrafted furniture pieces built to exacting specifications — each one a functional work of art.</div>
+        <a href="https://wa.me/919118861979?text=Hello Ansar Ahmed, I'm interested in your Bespoke Furniture service." target="_blank" class="serv-wa-link" title="Contact on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.5 8.5 0 0 1 8.5 8.5c0 1.2-.3 2.3-.9 3.3L21 21l-5.6-1.1z"/></svg></a>
         <div class="serv-arrow"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
         <div class="serv-bar"></div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Layers, Sofa, Settings2, LayoutGrid, Utensils, Lightbulb, PenTool, Home, Paintbrush, Image, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Layers, Sofa, Settings2, LayoutGrid, Utensils, Lightbulb, PenTool, Home, Paintbrush, Image, ShieldCheck, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +13,7 @@ const services = [
     title: 'POP / Gypsum False Ceiling',
     tagline: 'Ambient Excellence',
     description: 'Custom false ceiling designs integrated with professional lighting solutions to create the perfect mood for every room.',
-    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/Bp_DULGF3NIEs5aeJZjWiv9RrG6wT3jRjInp-lb0zqySWLygEtPu_Z-khgVw1T5EcwJ_mTNk7aam8orOXRmSA_HyXATrSoNjwMi8eljLqIpNq7nILy4QUVSz3IuXB6xeB8dPwrahYrwAO_8Rtp1c8LB2AIJ5rtkahey9oY0Gyde1cGCV5bi0c9DB7JcPKbhx?purpose=fullsize',
     tags: ['False Ceiling', 'POP', 'Gypsum'],
   },
   {
@@ -22,7 +22,7 @@ const services = [
     title: 'PVC / WPC / Fluted Panels',
     tagline: 'Modern Wall Solutions',
     description: 'Durable and stylish PVC, WPC paneling and Fluted panels for walls and ceilings, providing a contemporary aesthetic.',
-    image: 'https://images.unsplash.com/photo-1620626011761-9963d7521477?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/PlKaP4Ulg5uCfjMDeqIX1DZbx1wmciAtAgXIgTbiRZZAOD05zOgnvhHXsGMFhr6X5Y1VUUzi5fkAjfg0FxPqArvSJ3pHLZggJpD7yKu_sUL9E430NKaHRysEbgZN9NOBLh8WVfcPHHPz7WyFQ8v2c-VhQO5Swfg4TDuS1_AUTajB08079R0G4tb--anuZGTA?purpose=fullsize',
     tags: ['PVC', 'WPC', 'Fluted Panels'],
   },
   {
@@ -31,7 +31,7 @@ const services = [
     title: 'Grid / Thermocol Ceiling',
     tagline: 'Functional Systems',
     description: 'Professional grid ceiling and thermocol insulation solutions for commercial and residential utility spaces.',
-    image: 'https://images.unsplash.com/photo-1505691938895-1758d7eaa511?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/iZIHmCeGh0CUnwiZobxpqng_n16LEd1UaJ1dQTZUyAJ-SFOu2ewjqVgqI4zMw-16gvlVDtNCEWzqKPDhT9nJ7qiwTPEEaEyHLVTn6K7NT0X4rSrtleYzTeh-neifeiUhNCKfd6CerpdRsSRvBLjcNao0WjgSpmv8ANQ_mW1KQ57Y7ri_rnnsQjK2T7l4Syxg?purpose=fullsize',
     tags: ['Grid Ceiling', 'Thermocol', 'Acoustic'],
   },
   {
@@ -40,7 +40,7 @@ const services = [
     title: 'Wall Moulding & Design',
     tagline: 'Classical Elegance',
     description: 'Sophisticated wall moulding and architectural design elements that add character and depth to your interior spaces.',
-    image: 'https://images.unsplash.com/photo-1594904351111-a072f80b1a71?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/b2Yy5oyhDB7rCtM205DXj1-9F4gmd_EQ-z199NXMB0-J_leYyh3q1fWJj1M_GmWipcA0HTtfbEYMXKO6h1jS1kS6gZdiYZ4SX32ZBpV6zN1cnnRWXsVzC3nadVAy7b02IH4kCTLYvWBW3QTme6L1ucSyvAtjIK9Rucc8o8cDiEIQqGITQicvUT9-X-MVVVP6?purpose=fullsize',
     tags: ['Moulding', 'Wall Design', 'Elegance'],
   },
   {
@@ -49,7 +49,7 @@ const services = [
     title: 'Electrical Solutions',
     tagline: 'Safe & Smart',
     description: 'Comprehensive electrical planning, wiring, and smart home integration for a safe and functional modern living environment.',
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/7Yb5d__693cQOIYRadImF5obJPb1_KTk_thgXYNAj7rHNqn2V6RkNotug6X20_rQJGZ4mek0KnbblSasAEOVZUYV_SlD8E5MrIOje1nlJUkbfxcwsOXL3IBabJPRLYaO5oUMywIpaRrsyfZh8sIk94DdzhdN_I9QtuJjoh9AUuiql9LXURcXkWwgVmkmkqds?purpose=fullsize',
     tags: ['Wiring', 'Lighting', 'Smart Home'],
   },
   {
@@ -58,7 +58,7 @@ const services = [
     title: 'Professional Painting',
     tagline: 'Vibrant Finishes',
     description: 'Expert interior and exterior painting services with premium finishes, textures, and professional color consultations.',
-    image: 'https://images.unsplash.com/photo-1589939705384-5185138a047a?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/A7-Jq4XfgwdyyvI-B1ltj_f63aEg8lGscUwr8NELPDtm9L_LnLSkyIkLGJS6dBrLt2sasO9mSPmMKcIx3EyaBPxfx3G1nMAB2_-_HP3_OJEf7J8NaXQjI0KxbX0P36BDQARCDRQmejbJjIndviI1XEugFfTQObHPH52BQbDbhWR9KhdVhg1tZqPCQDJdyRUZ?purpose=fullsize',
     tags: ['Interior', 'Exterior', 'Texture'],
   },
   {
@@ -67,7 +67,7 @@ const services = [
     title: 'Wallpaper / Customizable',
     tagline: 'Artistic Walls',
     description: 'A wide range of customizable wallpaper designs and wall coverings to suit your unique aesthetic and lifestyle.',
-    image: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/B31YgqOdBAnukubg1_T-F125QkHoVe9__7281-bRGR_OGAEm7W4EC2AGoHDylwDdHfK8BqwbLGFSJRuZu0Tj-EncFcV91F1ZIuHEBDMU4cjP_DtqAZgl5W0orjWYPBky8It10ZetbdBUfIqSq1C6B9JZfyVdaU7f0G3CvcbpEgbbxh9nLtEz4hsWFf8lFhCZ?purpose=fullsize',
     tags: ['Wallpaper', 'Custom Design', 'Artistic'],
   },
   {
@@ -76,7 +76,7 @@ const services = [
     title: 'Invisible Grills',
     tagline: 'Safety First',
     description: 'Modern invisible grill solutions for balconies and windows, providing maximum safety without obstructing your view.',
-    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/8Hlvh70-dFsObho17Lbi-8V0GTxY6t-idwjVJmfm2Ny5W7HXN-UfFe_z1c5QeMsWCD0DEx8JSGV40ctzlI4V8P2gwL4QgO7g301rOp8-gHHy9GHNv4uAz1aSpsy4Z2Pchb1j5667sEdPpavGd2iQyaxKfRDLMFD1HFUTRTfCEAEKibGg9BAzBc98PT42OfIO?purpose=fullsize',
     tags: ['Safety', 'Balcony', 'Invisible'],
   },
   {
@@ -85,7 +85,7 @@ const services = [
     title: 'Complete Wooden Work',
     tagline: 'Handcrafted Interiors',
     description: 'End-to-end wooden interior solutions including wardrobes, beds, and bespoke storage units crafted from premium timber.',
-    image: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e8f?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/41bIWtrwPFpN-Jy4T9yXqmNdHEayF4GXugmghS5Hp1L-FFIbJWLQpYlOeDxUqowV0dEoTNPhhmBtO7Qc0AZ7ZGjbxrM8W6YTos-C7Np70PDjldOcwQgomhcbzGIAPng0He9TIfaswdItdrnTraOQvAQ4-9Wl4chlws_HZJNiaL-KNW_-PqMkxwkyutNsQ_yq?purpose=fullsize',
     tags: ['Wardrobes', 'Beds', 'Storage'],
   },
   {
@@ -94,7 +94,7 @@ const services = [
     title: 'Kitchen Modular Work',
     tagline: 'Ergonomic Excellence',
     description: 'State-of-the-art modular kitchen designs optimized for functionality, space efficiency, and modern aesthetics.',
-    image: 'https://images.unsplash.com/photo-1556911220-e150213ff7ad?w=800&q=80',
+    image: 'https://images.openai.com/static-rsc-4/JG2X1TsnN2w8erajIwMcXL1sDoJ3MXaBQZeFwOnPLeF0bn0_RylAsesQNBBxZYEbU26Z_KNcrE4ST5Gm2NoNHKiP-Fx35PXG1bWIIpliaErvWoMiy6JLgwvsMcCp78qSs8PMWC4FsyYIBbD1DUBNniZTmaX81Hiu37fnvdqO65lymZVGmsMyCF4na6U80GiY?purpose=fullsize',
     tags: ['Ergonomic', 'Storage', 'Modular'],
   },
 ];
@@ -213,13 +213,27 @@ const ServicesSection = () => {
                   ))}
                 </div>
 
-                <div
-                  className="flex items-center gap-2 font-grotesk text-[0.7rem] font-bold tracking-widest uppercase text-charcoal/40 dark:text-white/40 transition-colors duration-300 group-hover:text-copper"
-                >
-                  Learn More
-                  <ArrowRight
-                    className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
-                  />
+                <div className="flex items-center justify-between mt-auto pt-2">
+                  <div
+                    className="flex items-center gap-2 font-grotesk text-[0.7rem] font-bold tracking-widest uppercase text-charcoal/40 dark:text-white/40 transition-colors duration-300 group-hover:text-copper"
+                  >
+                    Learn More
+                    <ArrowRight
+                      className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </div>
+                  
+                  <a 
+                    href={`https://wa.me/919118861979?text=${encodeURIComponent(`Hello Ansar Ahmed, I am interested in ${service.title} for my project.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 hover:bg-green-500 hover:text-white transition-all duration-300 group/wa"
+                    title="Contact on WhatsApp"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span className="font-grotesk text-[0.6rem] font-bold tracking-widest uppercase">WhatsApp</span>
+                  </a>
                 </div>
               </div>
 
