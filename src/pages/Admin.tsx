@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Database, RefreshCw, ExternalLink, Calendar, User, Phone, Mail, MessageSquare } from 'lucide-react';
+import { Database, RefreshCw, ExternalLink, Calendar, User, Phone, Mail, MessageSquare, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { toast } from 'sonner';
 
 interface Lead {
   timestamp: string;
@@ -17,21 +20,62 @@ const Admin = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Auth state
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
+  // Hardcoded credentials
+  const ADMIN_EMAIL = "ansar@admin.com";
+  const ADMIN_PASSWORD = "Borabanda@123";
+
+  // Check for existing session
+  useEffect(() => {
+    const session = localStorage.getItem('admin_session');
+    if (session === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoggingIn(true);
+
+    // Simulate a brief delay for a better UX
+    setTimeout(() => {
+      if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        setIsAuthenticated(true);
+        localStorage.setItem('admin_session', 'true');
+        toast.success("Welcome back, Ansar!");
+      } else {
+        toast.error("Invalid credentials. Please try again.");
+      }
+      setIsLoggingIn(false);
+    }, 800);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('admin_session');
+    toast.info("Logged out successfully");
+  };
 
   // Using the same URL provided by the user
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzQUgFWRZeYhth8CzpTLExEnLBx6xZbAyPF01h73eLx2H8fteRzjgpF4QzG6xflVg6qoA/exec";
 
   const fetchLeads = async () => {
+    if (!isAuthenticated) return;
+    
     setIsLoading(true);
     setError(null);
     try {
-      // For Google Apps Script, GET requests to the web app URL 
-      // will execute the doGet() function.
       const response = await fetch(SCRIPT_URL);
       const data = await response.json();
       
       if (Array.isArray(data)) {
-        // Reverse to show newest first
         setLeads(data.reverse());
       } else {
         throw new Error("Invalid data format received");
@@ -45,8 +89,100 @@ const Admin = () => {
   };
 
   useEffect(() => {
-    fetchLeads();
-  }, []);
+    if (isAuthenticated) {
+      fetchLeads();
+    }
+  }, [isAuthenticated]);
+
+  if (!isAuthenticated) {
+    return (
+      <div className="bg-ivory text-charcoal min-h-screen flex flex-col">
+        <Navigation />
+        <main className="flex-grow flex items-center justify-center px-6 py-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full max-w-md"
+          >
+            <div className="bg-white p-8 md:p-10 rounded-3xl border border-ivory-dark shadow-hard relative overflow-hidden">
+              {/* Decorative background element */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-copper/5 rounded-full -mr-16 -mt-16 blur-3xl" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-12 h-12 rounded-2xl bg-copper/10 flex items-center justify-center text-copper">
+                    <Lock className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-2xl text-charcoal">Admin <span className="italic text-copper font-light">Portal</span></h2>
+                    <p className="text-charcoal/40 text-xs font-grotesk tracking-widest uppercase">Secure Access Only</p>
+                  </div>
+                </div>
+
+                <form onSubmit={handleLogin} className="space-y-5">
+                  <div className="space-y-2">
+                    <label className="text-[0.65rem] font-grotesk tracking-widest uppercase text-charcoal/60 ml-1">Email Address</label>
+                    <div className="relative">
+                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal/30" />
+                      <Input 
+                        type="email" 
+                        placeholder="admin@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="pl-11 h-12 bg-ivory/30 border-ivory-dark focus:ring-copper/20 focus:border-copper rounded-xl font-body"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-[0.65rem] font-grotesk tracking-widest uppercase text-charcoal/60 ml-1">Password</label>
+                    <div className="relative">
+                      <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal/30" />
+                      <Input 
+                        type={showPassword ? "text" : "password"} 
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        className="pl-11 pr-11 h-12 bg-ivory/30 border-ivory-dark focus:ring-copper/20 focus:border-copper rounded-xl font-body"
+                      />
+                      <button 
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-charcoal/30 hover:text-copper transition-colors"
+                      >
+                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    disabled={isLoggingIn}
+                    className="w-full h-12 bg-charcoal hover:bg-charcoal/90 text-white rounded-xl font-grotesk font-bold tracking-widest uppercase transition-all shadow-lg hover:shadow-charcoal/20 flex items-center justify-center gap-2 group"
+                  >
+                    {isLoggingIn ? (
+                      <RefreshCw className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <>
+                        Sign In <LogIn className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </div>
+            </div>
+            
+            <p className="text-center mt-8 text-charcoal/40 font-body text-xs">
+              Protected by Nexlane Interiors Security Systems
+            </p>
+          </motion.div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-ivory text-charcoal selection:bg-copper selection:text-white min-h-screen flex flex-col">
@@ -67,14 +203,23 @@ const Admin = () => {
               </h1>
             </div>
             
-            <button 
-              onClick={fetchLeads}
-              disabled={isLoading}
-              className="flex items-center gap-2 px-6 py-3 bg-white border border-ivory-dark rounded-xl shadow-soft hover:shadow-medium transition-all text-sm font-grotesk font-bold tracking-widest uppercase disabled:opacity-50"
-            >
-              <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
-              Refresh Data
-            </button>
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={fetchLeads}
+                disabled={isLoading}
+                className="flex items-center gap-2 px-6 py-3 bg-white border border-ivory-dark rounded-xl shadow-soft hover:shadow-medium transition-all text-sm font-grotesk font-bold tracking-widest uppercase disabled:opacity-50"
+              >
+                <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
+                Refresh Data
+              </button>
+              
+              <button 
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-6 py-3 bg-red-50 text-red-600 border border-red-100 rounded-xl shadow-soft hover:bg-red-100 transition-all text-sm font-grotesk font-bold tracking-widest uppercase"
+              >
+                Logout
+              </button>
+            </div>
           </div>
 
           {/* Stats Summary */}
@@ -200,3 +345,4 @@ const Admin = () => {
 };
 
 export default Admin;
+
