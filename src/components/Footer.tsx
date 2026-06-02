@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-white dark:bg-charcoal-dark border-t border-ivory-dark dark:border-white/5 transition-colors duration-500">
+    <footer className="relative overflow-hidden bg-white dark:bg-black border-t border-ivory-dark dark:border-white/5 transition-colors duration-500">
       {/* Decorative gradient accent line at top */}
       <div className="h-[2px] w-full" style={{ background: 'var(--gradient-copper)' }} />
 
@@ -41,9 +41,9 @@ const Footer = () => {
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="group w-fit block">
               <img 
-                src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1778589282/IMG_20260505_234313_298_nwhxup.webp" 
+                src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1780391865/file_0000000089e072089feed9f9620a8559_zorqj0.png" 
                 alt="Nexlane Interiors Logo" 
-                className="h-12 w-12 rounded-full object-cover border border-charcoal/5 dark:border-white/10 transition-transform duration-500 group-hover:scale-105"
+                className="h-12 w-auto rounded-xl object-contain transition-transform duration-500 group-hover:scale-105"
               />
             </Link>
 
@@ -64,6 +64,10 @@ const Footer = () => {
                 <Phone className="w-4 h-4 flex-shrink-0 text-copper" />
                 <span className="font-body text-sm group-hover/link:text-copper transition-colors">+91 91188 61979</span>
               </a>
+              <div className="flex items-center gap-3 text-charcoal/60 dark:text-white/60">
+                <MapPin className="w-4 h-4 flex-shrink-0 text-copper" />
+                <span className="font-body text-sm">Padmavathi Nagar, Borabanda Hyd</span>
+              </div>
             </div>
 
             <div className="flex items-center gap-3">

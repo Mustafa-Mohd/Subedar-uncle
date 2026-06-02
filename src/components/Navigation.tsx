@@ -36,16 +36,16 @@ const Navigation = () => {
         <div 
           className={`relative flex justify-between items-center px-6 lg:px-8 py-3 rounded-2xl transition-all duration-500 border ${
             isScrolled 
-              ? 'bg-white/80 dark:bg-charcoal/80 backdrop-blur-lg border-charcoal/5 dark:border-white/5 shadow-soft' 
-              : 'bg-transparent border-transparent'
+              ? 'bg-white/95 dark:bg-charcoal/95 backdrop-blur-xl border-charcoal/10 dark:border-white/10 shadow-medium' 
+              : 'bg-white/80 dark:bg-charcoal/80 backdrop-blur-lg border-charcoal/5 dark:border-white/5 shadow-soft'
           }`}
         >
           {/* Logo */}
           <Link to="/" className="group">
             <img 
-              src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1778589282/IMG_20260505_234313_298_nwhxup.webp" 
+              src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1780391865/file_0000000089e072089feed9f9620a8559_zorqj0.png" 
               alt="Nexlane Interiors Logo" 
-              className="h-10 lg:h-12 w-10 lg:w-12 rounded-full object-cover border border-charcoal/5 dark:border-white/5 transition-all duration-500 group-hover:scale-105"
+              className="h-10 lg:h-12 w-auto rounded-xl object-contain transition-all duration-500 group-hover:scale-105"
             />
           </Link>
 

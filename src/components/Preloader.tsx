@@ -73,9 +73,9 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       <div className="text-center relative z-10">
         <div ref={logoRef} className="mb-10 flex flex-col items-center">
           <img 
-            src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1778589282/IMG_20260505_234313_298_nwhxup.webp" 
+            src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1780391865/file_0000000089e072089feed9f9620a8559_zorqj0.png" 
             alt="Nexlane Interiors Logo" 
-            className="h-24 w-24 rounded-full object-cover border-2 border-copper/20 mb-4 shadow-hard"
+            className="h-24 w-auto rounded-2xl object-contain mb-4 shadow-hard"
           />
         </div>
 

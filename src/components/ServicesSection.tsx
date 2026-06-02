@@ -97,6 +97,24 @@ const services = [
     image: 'https://images.openai.com/static-rsc-4/JG2X1TsnN2w8erajIwMcXL1sDoJ3MXaBQZeFwOnPLeF0bn0_RylAsesQNBBxZYEbU26Z_KNcrE4ST5Gm2NoNHKiP-Fx35PXG1bWIIpliaErvWoMiy6JLgwvsMcCp78qSs8PMWC4FsyYIBbD1DUBNniZTmaX81Hiu37fnvdqO65lymZVGmsMyCF4na6U80GiY?purpose=fullsize',
     tags: ['Ergonomic', 'Storage', 'Modular'],
   },
+  {
+    icon: PenTool,
+    number: '11',
+    title: '2D Drawings',
+    tagline: 'Precision Blueprints',
+    description: 'Detailed 2D architectural drawings and floor plans to layout every inch of your space with absolute accuracy.',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop',
+    tags: ['2D', 'Drawings', 'Planning'],
+  },
+  {
+    icon: Image,
+    number: '12',
+    title: '3D Visualisation',
+    tagline: 'Realistic Renderings',
+    description: 'High-quality 3D visualizations and walk-throughs to preview your dream space before execution.',
+    image: 'https://images.unsplash.com/photo-1558442074-3c1985715fb6?q=80&w=1000&auto=format&fit=crop',
+    tags: ['3D', 'Render', 'Visualization'],
+  },
 ];
 
 const ServicesSection = () => {

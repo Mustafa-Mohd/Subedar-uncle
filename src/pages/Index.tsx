@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import StudioSection from '@/components/StudioSection';
 import ServicesSection from '@/components/ServicesSection';
+import WhyChooseUs from '@/components/WhyChooseUs';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CtaBanner from '@/components/CtaBanner';
 import Footer from '@/components/Footer';
@@ -23,6 +24,7 @@ const Index = () => {
           <HeroSection />
           <StudioSection />
           <ServicesSection />
+          <WhyChooseUs />
           <TestimonialsSection />
           <CtaBanner />
         </main>

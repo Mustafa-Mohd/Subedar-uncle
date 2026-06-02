@@ -1,186 +1,131 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Trophy, Users, Star, ArrowDown } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const HeroSection = () => {
-  const images = [
-    'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=90',
-    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1800&q=90',
-  ];
+const servicesData = [
+  { title: 'POP / Gypsum False Ceiling', img: 'https://images.openai.com/static-rsc-4/Bp_DULGF3NIEs5aeJZjWiv9RrG6wT3jRjInp-lb0zqySWLygEtPu_Z-khgVw1T5EcwJ_mTNk7aam8orOXRmSA_HyXATrSoNjwMi8eljLqIpNq7nILy4QUVSz3IuXB6xeB8dPwrahYrwAO_8Rtp1c8LB2AIJ5rtkahey9oY0Gyde1cGCV5bi0c9DB7JcPKbhx?purpose=fullsize' },
+  { title: 'PVC / WPC / Fluted Panels', img: 'https://images.openai.com/static-rsc-4/PlKaP4Ulg5uCfjMDeqIX1DZbx1wmciAtAgXIgTbiRZZAOD05zOgnvhHXsGMFhr6X5Y1VUUzi5fkAjfg0FxPqArvSJ3pHLZggJpD7yKu_sUL9E430NKaHRysEbgZN9NOBLh8WVfcPHHPz7WyFQ8v2c-VhQO5Swfg4TDuS1_AUTajB08079R0G4tb--anuZGTA?purpose=fullsize' },
+  { title: 'Grid / Thermocol Ceiling', img: 'https://images.openai.com/static-rsc-4/iZIHmCeGh0CUnwiZobxpqng_n16LEd1UaJ1dQTZUyAJ-SFOu2ewjqVgqI4zMw-16gvlVDtNCEWzqKPDhT9nJ7qiwTPEEaEyHLVTn6K7NT0X4rSrtleYzTeh-neifeiUhNCKfd6CerpdRsSRvBLjcNao0WjgSpmv8ANQ_mW1KQ57Y7ri_rnnsQjK2T7l4Syxg?purpose=fullsize' },
+  { title: 'Wall Moulding & Design', img: 'https://images.openai.com/static-rsc-4/b2Yy5oyhDB7rCtM205DXj1-9F4gmd_EQ-z199NXMB0-J_leYyh3q1fWJj1M_GmWipcA0HTtfbEYMXKO6h1jS1kS6gZdiYZ4SX32ZBpV6zN1cnnRWXsVzC3nadVAy7b02IH4kCTLYvWBW3QTme6L1ucSyvAtjIK9Rucc8o8cDiEIQqGITQicvUT9-X-MVVVP6?purpose=fullsize' },
+  { title: 'Electrical Solutions', img: 'https://images.openai.com/static-rsc-4/7Yb5d__693cQOIYRadImF5obJPb1_KTk_thgXYNAj7rHNqn2V6RkNotug6X20_rQJGZ4mek0KnbblSasAEOVZUYV_SlD8E5MrIOje1nlJUkbfxcwsOXL3IBabJPRLYaO5oUMywIpaRrsyfZh8sIk94DdzhdN_I9QtuJjoh9AUuiql9LXURcXkWwgVmkmkqds?purpose=fullsize' },
+  { title: 'Professional Painting', img: 'https://images.openai.com/static-rsc-4/A7-Jq4XfgwdyyvI-B1ltj_f63aEg8lGscUwr8NELPDtm9L_LnLSkyIkLGJS6dBrLt2sasO9mSPmMKcIx3EyaBPxfx3G1nMAB2_-_HP3_OJEf7J8NaXQjI0KxbX0P36BDQARCDRQmejbJjIndviI1XEugFfTQObHPH52BQbDbhWR9KhdVhg1tZqPCQDJdyRUZ?purpose=fullsize' },
+  { title: 'Wallpaper / Customizable', img: 'https://images.openai.com/static-rsc-4/B31YgqOdBAnukubg1_T-F125QkHoVe9__7281-bRGR_OGAEm7W4EC2AGoHDylwDdHfK8BqwbLGFSJRuZu0Tj-EncFcV91F1ZIuHEBDMU4cjP_DtqAZgl5W0orjWYPBky8It10ZetbdBUfIqSq1C6B9JZfyVdaU7f0G3CvcbpEgbbxh9nLtEz4hsWFf8lFhCZ?purpose=fullsize' },
+  { title: 'Invisible Grills', img: 'https://images.openai.com/static-rsc-4/8Hlvh70-dFsObho17Lbi-8V0GTxY6t-idwjVJmfm2Ny5W7HXN-UfFe_z1c5QeMsWCD0DEx8JSGV40ctzlI4V8P2gwL4QgO7g301rOp8-gHHy9GHNv4uAz1aSpsy4Z2Pchb1j5667sEdPpavGd2iQyaxKfRDLMFD1HFUTRTfCEAEKibGg9BAzBc98PT42OfIO?purpose=fullsize' },
+  { title: 'Complete Wooden Work', img: 'https://images.openai.com/static-rsc-4/41bIWtrwPFpN-Jy4T9yXqmNdHEayF4GXugmghS5Hp1L-FFIbJWLQpYlOeDxUqowV0dEoTNPhhmBtO7Qc0AZ7ZGjbxrM8W6YTos-C7Np70PDjldOcwQgomhcbzGIAPng0He9TIfaswdItdrnTraOQvAQ4-9Wl4chlws_HZJNiaL-KNW_-PqMkxwkyutNsQ_yq?purpose=fullsize' },
+  { title: 'Kitchen Modular Work', img: 'https://images.openai.com/static-rsc-4/JG2X1TsnN2w8erajIwMcXL1sDoJ3MXaBQZeFwOnPLeF0bn0_RylAsesQNBBxZYEbU26Z_KNcrE4ST5Gm2NoNHKiP-Fx35PXG1bWIIpliaErvWoMiy6JLgwvsMcCp78qSs8PMWC4FsyYIBbD1DUBNniZTmaX81Hiu37fnvdqO65lymZVGmsMyCF4na6U80GiY?purpose=fullsize' },
+  { title: '2D Drawings', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop' },
+  { title: '3D Visualisation', img: 'https://images.unsplash.com/photo-1558442074-3c1985715fb6?q=80&w=1000&auto=format&fit=crop' },
+];
 
-  const stats = [
-    { icon: Trophy, label: 'Excellence', value: '27+', sub: 'Years Experience' },
-    { icon: Users, label: 'Community', value: '200+', sub: 'Luxury Projects' },
-    { icon: Star, label: 'Quality', value: '98%', sub: 'Client Rating' },
-  ];
+const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % servicesData.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center">
-      {/* Background with Ambient Zoom */}
-      <motion.div 
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 15, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
-        className="absolute inset-0 z-0"
-      >
-        <img
-          src={images[0]}
-          alt="Luxury Interior"
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      
+      {/* Background Carousel */}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 z-0"
+        >
+          <img 
+            src={servicesData[currentIndex].img} 
+            alt={servicesData[currentIndex].title} 
+            className="w-full h-full object-cover" 
+          />
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Cinematic Overlays */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-transparent" />
-      <div className="absolute inset-0 z-1 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
-      <div className="absolute inset-0 z-1 backdrop-brightness-75" />
+      {/* Overlays for better text readability */}
+      <div className="absolute inset-0 z-1 bg-charcoal/60" />
+      <div className="absolute inset-0 z-1 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent opacity-80" />
+      <div className="absolute inset-0 z-1 bg-gradient-to-r from-charcoal-dark/70 via-charcoal-dark/20 to-transparent" />
       
       {/* Noise Texture */}
       <div className="absolute inset-0 z-1 opacity-[0.03] pointer-events-none" 
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} 
       />
 
-      {/* Main Content Layout */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-center min-h-screen py-20 lg:py-0">
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-center min-h-screen">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mt-10 lg:mt-0">
-          
-          {/* Left Column: Typography */}
-          <div className="lg:col-span-7 xl:col-span-7 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
+        <div className="max-w-3xl text-center lg:text-left pt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
+            <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+              <span className="w-10 h-px bg-copper" />
+              <span className="font-grotesk text-[0.6rem] lg:text-[0.7rem] tracking-[0.4em] uppercase text-ivory/80 font-bold">
+                Nexlane Interiors • Our Expertise
+              </span>
+            </div>
+
+            <h1 
+              className="font-display text-white leading-[1.1] mb-6 lg:mb-8 drop-shadow-lg"
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}
             >
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-                <span className="w-10 h-px bg-copper" />
-                <span className="font-grotesk text-[0.6rem] lg:text-[0.7rem] tracking-[0.4em] uppercase text-ivory/80 font-bold">
-                  Est. 1997 • Bespoke Interiors
-                </span>
-              </div>
-
-              <h1 
-                className="font-display text-white leading-[1.1] mb-6 lg:mb-8"
-                style={{ fontSize: 'clamp(2.2rem, 8vw, 4.8rem)' }}
-              >
-                Crafting Spaces That <br />
-                <span className="italic font-light text-copper-light">Define Your Legacy</span>
-              </h1>
-
-              <p className="font-body text-ivory/70 text-base lg:text-xl leading-relaxed mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0">
-                Nexlane Interiors merges architectural precision with luxury artistry to create 
-                living environments that are as unique as your own story.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-5">
-                <Link
-                  to="/gallery"
-                  className="w-full sm:w-auto group relative flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-charcoal text-white rounded-xl overflow-hidden transition-all duration-500 hover:shadow-hard"
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="block"
                 >
-                  <span className="relative z-10 font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold">Discover Collection</span>
-                  <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
-                </Link>
+                  {servicesData[currentIndex].title}
+                </motion.span>
+              </AnimatePresence>
+            </h1>
 
-                <Link
-                  to="/contact"
-                  className="w-full sm:w-auto group flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-ivory-dark/40 backdrop-blur-md border border-charcoal/10 text-charcoal rounded-xl transition-all duration-500 hover:bg-ivory-dark/60"
-                >
-                  <span className="font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold text-charcoal/80">Start Consultation</span>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+            <p className="font-body text-ivory/80 text-base lg:text-xl leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
+              Crafting spaces that define your legacy with absolute precision and luxury artistry.
+            </p>
 
-          {/* Right Column: 3D Furniture Model & Counters */}
-          <div className="lg:col-span-5 xl:col-span-5 flex flex-col items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="w-full aspect-square max-w-[300px] lg:max-w-[450px] relative mb-8 lg:mb-12"
-            >
-              {/* @ts-ignore - model-viewer is a custom element */}
-              <model-viewer
-                src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/SheenChair/glTF-Binary/SheenChair.glb"
-                alt="Luxury Furniture Model"
-                auto-rotate
-                camera-controls
-                shadow-intensity="2"
-                environment-image="neutral"
-                exposure="1.5"
-                interaction-prompt="auto"
-                style={{ width: '100%', height: '100%', backgroundColor: 'transparent', cursor: 'grab' }}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-5">
+              <Link
+                to="/services"
+                className="w-full sm:w-auto group relative flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-copper text-white rounded-xl overflow-hidden transition-all duration-500 hover:bg-copper-dark shadow-hard shadow-copper/20"
               >
-              </model-viewer>
-              
-              {/* Subtle background glow behind the model */}
-              <div className="absolute inset-0 bg-copper/5 blur-[60px] lg:blur-[100px] rounded-full -z-10" />
-            </motion.div>
+                <span className="relative z-10 font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold">Explore All Services</span>
+                <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+              </Link>
 
-            {/* Counters Row */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex items-center gap-6 lg:gap-12 w-full justify-center border-t border-white/10 pt-6 lg:pt-8"
-            >
-              {stats.map((stat, i) => (
-                <div key={i} className="text-center group">
-                  <div className="font-display text-xl lg:text-3xl text-white font-light mb-1 group-hover:text-copper transition-colors duration-300">
-                    {stat.value}
-                  </div>
-                  <div className="font-grotesk text-[0.5rem] lg:text-[0.6rem] tracking-[0.2em] uppercase text-ivory/40 whitespace-nowrap">
-                    {stat.sub.split(' ')[0]} <br className="hidden lg:block" /> {stat.sub.split(' ').slice(1).join(' ')}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+              <Link
+                to="/contact"
+                className="w-full sm:w-auto group flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-xl transition-all duration-500 hover:bg-white/20"
+              >
+                <span className="font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold text-white/90">Start Consultation</span>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Floating Particles Placeholder (Simulated with simple spans for now) */}
-      <div className="absolute inset-0 z-2 pointer-events-none overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-copper/20 rounded-full"
-            initial={{ 
-              x: Math.random() * 100 + '%', 
-              y: Math.random() * 100 + '%',
-              opacity: 0.1
-            }}
-            animate={{ 
-              y: [null, '-20px', '20px'],
-              opacity: [0.1, 0.4, 0.1]
-            }}
-            transition={{ 
-              duration: 5 + Math.random() * 5, 
-              repeat: Infinity, 
-              ease: 'easeInOut' 
-            }}
+      {/* Progress indicators / Pagination */}
+      <div className="absolute bottom-10 left-0 right-0 z-10 flex justify-center gap-2">
+        {servicesData.map((_, i) => (
+          <div 
+            key={i} 
+            className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? 'w-8 bg-copper' : 'w-2 bg-white/30'}`}
           />
         ))}
       </div>
-
-      {/* Scroll Down Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 cursor-pointer group"
-        onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-      >
-        <span className="font-grotesk text-[0.6rem] tracking-[0.3em] uppercase text-ivory/40 group-hover:text-copper transition-colors">Discover</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-copper to-transparent relative">
-          <motion.div 
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-0 left-[-1.5px] w-1 h-1 bg-white rounded-full"
-          />
-        </div>
-      </motion.div>
 
     </section>
   );
