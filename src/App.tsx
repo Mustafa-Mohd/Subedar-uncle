@@ -11,6 +11,7 @@ import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import Story from "./pages/Story";
 import ScrollToTopOnNavigate from "./components/ScrollToTopOnNavigate";
+import ContactPopup from "./components/ContactPopup";
 
 import { ThemeProvider } from "./components/ThemeProvider";
 
@@ -24,6 +25,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTopOnNavigate />
+          <ContactPopup />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />

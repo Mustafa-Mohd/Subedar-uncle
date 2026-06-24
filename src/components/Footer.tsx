@@ -41,9 +41,9 @@ const Footer = () => {
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="group w-fit block">
               <img 
-                src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1780391865/file_0000000089e072089feed9f9620a8559_zorqj0.png" 
+                src="https://res.cloudinary.com/dvkmvwfkc/image/upload/v1782323879/file_00000000ef3c7208a4af47c3703b60f7-removebg-preview_fuvca4.png" 
                 alt="Nexlane Interiors Logo" 
-                className="h-12 w-auto rounded-xl object-contain transition-transform duration-500 group-hover:scale-105"
+                className="h-20 sm:h-24 w-auto rounded-xl object-contain transition-transform duration-500 group-hover:scale-105"
               />
             </Link>
 

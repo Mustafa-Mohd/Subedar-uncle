@@ -68,7 +68,7 @@ const WhyChooseUs = () => {
   }, []);
 
   return (
-    <section ref={processRef} className="py-20 lg:py-28 bg-ivory dark:bg-charcoal transition-colors duration-500 border-t border-charcoal/5 dark:border-white/5">
+    <section ref={processRef} className="py-10 lg:py-16 bg-ivory dark:bg-charcoal transition-colors duration-500 border-t border-charcoal/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-5">

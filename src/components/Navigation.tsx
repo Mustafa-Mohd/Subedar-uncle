@@ -43,9 +43,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="group">
             <img 
-              src="https://res.cloudinary.com/dvkmvwfkc/image/upload/q_auto/f_auto/v1780391865/file_0000000089e072089feed9f9620a8559_zorqj0.png" 
+              src="https://res.cloudinary.com/dvkmvwfkc/image/upload/v1782323630/file_00000000db3471faba34d2bfa2d90c23_1_jh9qaf.png" 
               alt="Nexlane Interiors Logo" 
-              className="h-10 lg:h-12 w-auto rounded-xl object-contain transition-all duration-500 group-hover:scale-105"
+              className="h-10 w-10 lg:h-12 lg:w-12 rounded-full object-cover transition-all duration-500 group-hover:scale-105"
             />
           </Link>
 

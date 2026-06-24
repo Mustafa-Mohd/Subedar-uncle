@@ -145,7 +145,6 @@ const Contact = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
-                          placeholder="e.g. John Doe"
                           className="w-full h-12 px-4 bg-white dark:bg-charcoal border border-ivory-dark dark:border-white/10 rounded-lg focus:border-copper focus:ring-1 focus:ring-copper outline-none transition-all font-body text-sm text-charcoal dark:text-white"
                         />
                       </div>
@@ -158,7 +157,6 @@ const Contact = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          placeholder="e.g. +91 9876543210"
                           className="w-full h-12 px-4 bg-white dark:bg-charcoal border border-ivory-dark dark:border-white/10 rounded-lg focus:border-copper focus:ring-1 focus:ring-copper outline-none transition-all font-body text-sm text-charcoal dark:text-white"
                         />
                       </div>
@@ -172,7 +170,6 @@ const Contact = () => {
                         name="location"
                         value={formData.location}
                         onChange={handleInputChange}
-                        placeholder="e.g. Jubilee Hills, Hyderabad"
                         className="w-full h-12 px-4 bg-white dark:bg-charcoal border border-ivory-dark dark:border-white/10 rounded-lg focus:border-copper focus:ring-1 focus:ring-copper outline-none transition-all font-body text-sm text-charcoal dark:text-white"
                       />
                     </div>

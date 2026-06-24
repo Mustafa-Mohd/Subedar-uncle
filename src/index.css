@@ -8,65 +8,65 @@
 @layer base {
   :root {
     /* Core palette - Swapped for Light Theme */
-    --background: 36 18% 96%; /* Ivory */
-    --foreground: 210 14% 11%; /* Charcoal */
+    --background: 0 0% 100%; /* Pure White */
+    --foreground: 0 0% 15%; /* Charcoal */
 
     --card: 0 0% 100%;
-    --card-foreground: 210 14% 11%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 14% 11%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 210 14% 11%;
-    --primary-foreground: 36 18% 96%;
+    --primary: 0 0% 15%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 10% 90%;
-    --secondary-foreground: 210 14% 11%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 36 8% 88%;
-    --muted-foreground: 210 8% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 14 52% 58%; /* Copper/Gold */
+    --accent: 46 65% 52%; /* Gold */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 36 18% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 36 12% 88%;
-    --input: 36 12% 88%;
-    --ring: 14 52% 58%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 46 65% 52%;
 
     /* ---- Custom Nexlane Tokens ---- */
-    /* Copper Rose / Gold – the primary accent */
-    --copper: 14 52% 58%;
-    --copper-light: 18 60% 72%;
-    --copper-dark: 12 50% 42%;
+    /* Gold – the primary accent */
+    --copper: 46 65% 52%;
+    --copper-light: 48 68% 81%;
+    --copper-dark: 43 100% 33%;
 
     /* Charcoal – used for text and deep accents */
-    --charcoal: 210 14% 11%;
-    --charcoal-mid: 210 12% 18%;
-    --charcoal-soft: 210 10% 26%;
+    --charcoal: 0 0% 15%;
+    --charcoal-mid: 0 0% 20%;
+    --charcoal-soft: 0 0% 30%;
 
-    /* Ivory – the new primary background */
-    --ivory: 36 18% 96%;
-    --ivory-dark: 36 14% 90%;
+    /* Pure White – the new primary background */
+    --ivory: 0 0% 100%;
+    --ivory-dark: 0 0% 95%;
 
     /* Sage – secondary accent */
     --sage: 152 18% 54%;
     --sage-light: 152 20% 72%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(160deg, hsl(36 18% 96%) 0%, hsl(36 14% 90%) 60%, hsl(14 30% 85%) 100%);
-    --gradient-copper: linear-gradient(135deg, hsl(14 52% 58%) 0%, hsl(18 60% 72%) 100%);
-    --gradient-overlay-hero: linear-gradient(to bottom, rgba(245,242,235,0.2) 0%, rgba(245,242,235,0.6) 100%);
-    --gradient-card: linear-gradient(180deg, transparent 40%, hsl(36 18% 96% / 0.9) 100%);
+    --gradient-hero: linear-gradient(160deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 60%, hsl(48 68% 81%) 100%);
+    --gradient-copper: linear-gradient(135deg, hsl(46 65% 52%) 0%, hsl(48 68% 81%) 100%);
+    --gradient-overlay-hero: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 100%);
+    --gradient-card: linear-gradient(180deg, transparent 40%, hsl(0 0% 100% / 0.9) 100%);
 
     /* Shadows */
-    --shadow-soft: 0 4px 24px -4px hsl(210 14% 11% / 0.12);
-    --shadow-medium: 0 12px 40px -8px hsl(210 14% 11% / 0.2);
-    --shadow-hard: 0 20px 60px -12px hsl(210 14% 11% / 0.35);
-    --shadow-copper: 0 8px 32px -8px hsl(14 52% 58% / 0.45);
-    --shadow-glow: 0 0 40px hsl(14 52% 58% / 0.2);
+    --shadow-soft: 0 4px 24px -4px hsl(0 0% 15% / 0.12);
+    --shadow-medium: 0 12px 40px -8px hsl(0 0% 15% / 0.2);
+    --shadow-hard: 0 20px 60px -12px hsl(0 0% 15% / 0.35);
+    --shadow-copper: 0 8px 32px -8px hsl(46 65% 52% / 0.45);
+    --shadow-glow: 0 0 40px hsl(46 65% 52% / 0.2);
 
     /* Transitions */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -77,13 +77,13 @@
   }
 
   .dark {
-    --background: 210 14% 11%;
-    --foreground: 36 15% 96%;
-    --card: 210 12% 15%;
-    --card-foreground: 36 15% 96%;
-    --border: 210 10% 22%;
-    --muted: 210 10% 18%;
-    --muted-foreground: 36 8% 60%;
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
   }
 }
 

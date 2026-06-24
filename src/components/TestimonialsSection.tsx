@@ -74,7 +74,7 @@ const TestimonialsSection = () => {
       </div>
 
       {/* Testimonials */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 lg:py-16">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="w-6 h-px bg-copper" />

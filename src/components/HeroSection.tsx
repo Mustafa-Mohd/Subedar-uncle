@@ -110,7 +110,7 @@ const HeroSection = () => {
                 to="/contact"
                 className="w-full sm:w-auto group flex items-center justify-center gap-3 px-8 lg:px-10 py-4 lg:py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-xl transition-all duration-500 hover:bg-white/20"
               >
-                <span className="font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold text-white/90">Start Consultation</span>
+                <span className="font-grotesk text-[0.7rem] lg:text-[0.8rem] tracking-widest uppercase font-bold text-white/90">Book Consultation</span>
               </Link>
             </div>
           </motion.div>

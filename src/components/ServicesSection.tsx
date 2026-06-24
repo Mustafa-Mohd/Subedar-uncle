@@ -147,7 +147,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 lg:py-36 bg-ivory dark:bg-charcoal transition-colors duration-500">
+    <section id="services" ref={sectionRef} className="py-10 lg:py-16 bg-ivory dark:bg-charcoal transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Header */}
