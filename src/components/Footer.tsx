@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Linkedin, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Instagram, Youtube, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -72,12 +72,14 @@ const Footer = () => {
 
             <div className="flex items-center gap-3">
               {[
-                { icon: Instagram, href: '#' },
-                { icon: Linkedin, href: '#' },
+                { icon: Instagram, href: 'https://www.instagram.com/nexlaneinteriors?igsh=bWttNXhoZHhyMjk3' },
+                { icon: Youtube, href: 'https://youtube.com/@nexlaneinteriors?si=s_F_1KOSeQZWlkoo' },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 bg-copper/5 border border-copper/10"
                 >
                   <Icon className="w-4 h-4 text-copper" />

@@ -154,7 +154,7 @@ const StudioSection = () => {
             </div>
 
             <div className="absolute top-0 right-0 px-6 py-5 rounded-2xl shadow-medium bg-charcoal dark:bg-white w-[160px]">
-              <div className="stat-number text-4xl font-display font-light text-copper-light dark:text-copper">27+</div>
+              <div className="stat-number text-4xl font-display font-light text-copper-light dark:text-copper">5+</div>
               <div className="font-body text-xs mt-1 text-white/50 dark:text-charcoal/50">Years of Excellence</div>
             </div>
 
