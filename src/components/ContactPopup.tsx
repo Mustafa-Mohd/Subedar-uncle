@@ -79,7 +79,7 @@ const ContactPopup = () => {
     }
 
     const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/919118861979?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/919059252564?text=${encodedText}`, '_blank');
     handleClose(); // Close popup after submit
   };
 

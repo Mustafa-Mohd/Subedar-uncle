@@ -58,15 +58,15 @@ const Footer = () => {
                 <span className="font-display text-lg text-charcoal dark:text-white">Ansar Ahmed</span>
               </div>
               <a
-                href="tel:+919118861979"
+                href="tel:+919059252564"
                 className="flex items-center gap-3 group/link animated-underline w-fit text-charcoal/60 dark:text-white/60"
               >
                 <Phone className="w-4 h-4 flex-shrink-0 text-copper" />
-                <span className="font-body text-sm group-hover/link:text-copper transition-colors">+91 91188 61979</span>
+                <span className="font-body text-sm group-hover/link:text-copper transition-colors">+91 90592 52564</span>
               </a>
               <div className="flex items-center gap-3 text-charcoal/60 dark:text-white/60">
                 <MapPin className="w-4 h-4 flex-shrink-0 text-copper" />
-                <span className="font-body text-sm">Padmavathi Nagar, Borabanda Hyd</span>
+                <span className="font-body text-sm">Site-3 NRR Puram Padmavathi Nagar, Borabanda, Hyderabad - 500018</span>
               </div>
             </div>
 

@@ -13,20 +13,7 @@ import './Services.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const servicesData = [
-  { num: '01', title: 'POP / Gypsum Ceiling', sub: 'Ambient Excellence', img: 'https://images.openai.com/static-rsc-4/Bp_DULGF3NIEs5aeJZjWiv9RrG6wT3jRjInp-lb0zqySWLygEtPu_Z-khgVw1T5EcwJ_mTNk7aam8orOXRmSA_HyXATrSoNjwMi8eljLqIpNq7nILy4QUVSz3IuXB6xeB8dPwrahYrwAO_8Rtp1c8LB2AIJ5rtkahey9oY0Gyde1cGCV5bi0c9DB7JcPKbhx?purpose=fullsize', desc: 'Custom false ceiling designs integrated with professional lighting solutions to create the perfect mood for every room.' },
-  { num: '02', title: 'PVC / WPC Panels', sub: 'Modern Wall Solutions', img: 'https://images.openai.com/static-rsc-4/PlKaP4Ulg5uCfjMDeqIX1DZbx1wmciAtAgXIgTbiRZZAOD05zOgnvhHXsGMFhr6X5Y1VUUzi5fkAjfg0FxPqArvSJ3pHLZggJpD7yKu_sUL9E430NKaHRysEbgZN9NOBLh8WVfcPHHPz7WyFQ8v2c-VhQO5Swfg4TDuS1_AUTajB08079R0G4tb--anuZGTA?purpose=fullsize', desc: 'Durable and stylish PVC, WPC paneling and Fluted panels for walls and ceilings, providing a contemporary aesthetic.' },
-  { num: '03', title: 'Grid / Thermocol', sub: 'Functional Systems', img: 'https://images.openai.com/static-rsc-4/iZIHmCeGh0CUnwiZobxpqng_n16LEd1UaJ1dQTZUyAJ-SFOu2ewjqVgqI4zMw-16gvlVDtNCEWzqKPDhT9nJ7qiwTPEEaEyHLVTn6K7NT0X4rSrtleYzTeh-neifeiUhNCKfd6CerpdRsSRvBLjcNao0WjgSpmv8ANQ_mW1KQ57Y7ri_rnnsQjK2T7l4Syxg?purpose=fullsize', desc: 'Professional grid ceiling and thermocol insulation solutions for commercial and residential utility spaces.' },
-  { num: '04', title: 'Wall Moulding', sub: 'Classical Elegance', img: 'https://images.openai.com/static-rsc-4/b2Yy5oyhDB7rCtM205DXj1-9F4gmd_EQ-z199NXMB0-J_leYyh3q1fWJj1M_GmWipcA0HTtfbEYMXKO6h1jS1kS6gZdiYZ4SX32ZBpV6zN1cnnRWXsVzC3nadVAy7b02IH4kCTLYvWBW3QTme6L1ucSyvAtjIK9Rucc8o8cDiEIQqGITQicvUT9-X-MVVVP6?purpose=fullsize', desc: 'Sophisticated wall moulding and architectural design elements that add character and depth to your interior spaces.' },
-  { num: '05', title: 'Electrical Solutions', sub: 'Safe & Smart', img: 'https://images.openai.com/static-rsc-4/7Yb5d__693cQOIYRadImF5obJPb1_KTk_thgXYNAj7rHNqn2V6RkNotug6X20_rQJGZ4mek0KnbblSasAEOVZUYV_SlD8E5MrIOje1nlJUkbfxcwsOXL3IBabJPRLYaO5oUMywIpaRrsyfZh8sIk94DdzhdN_I9QtuJjoh9AUuiql9LXURcXkWwgVmkmkqds?purpose=fullsize', desc: 'Comprehensive electrical planning, wiring, and smart home integration for a safe and functional modern living environment.' },
-  { num: '06', title: 'Professional Painting', sub: 'Vibrant Finishes', img: 'https://images.openai.com/static-rsc-4/A7-Jq4XfgwdyyvI-B1ltj_f63aEg8lGscUwr8NELPDtm9L_LnLSkyIkLGJS6dBrLt2sasO9mSPmMKcIx3EyaBPxfx3G1nMAB2_-_HP3_OJEf7J8NaXQjI0KxbX0P36BDQARCDRQmejbJjIndviI1XEugFfTQObHPH52BQbDbhWR9KhdVhg1tZqPCQDJdyRUZ?purpose=fullsize', desc: 'Expert interior and exterior painting services with premium finishes, textures, and professional color consultations.' },
-  { num: '07', title: 'Wallpaper', sub: 'Artistic Walls', img: 'https://images.openai.com/static-rsc-4/B31YgqOdBAnukubg1_T-F125QkHoVe9__7281-bRGR_OGAEm7W4EC2AGoHDylwDdHfK8BqwbLGFSJRuZu0Tj-EncFcV91F1ZIuHEBDMU4cjP_DtqAZgl5W0orjWYPBky8It10ZetbdBUfIqSq1C6B9JZfyVdaU7f0G3CvcbpEgbbxh9nLtEz4hsWFf8lFhCZ?purpose=fullsize', desc: 'A wide range of customizable wallpaper designs and wall coverings to suit your unique aesthetic and lifestyle.' },
-  { num: '08', title: 'Invisible Grills', sub: 'Safety First', img: 'https://images.openai.com/static-rsc-4/8Hlvh70-dFsObho17Lbi-8V0GTxY6t-idwjVJmfm2Ny5W7HXN-UfFe_z1c5QeMsWCD0DEx8JSGV40ctzlI4V8P2gwL4QgO7g301rOp8-gHHy9GHNv4uAz1aSpsy4Z2Pchb1j5667sEdPpavGd2iQyaxKfRDLMFD1HFUTRTfCEAEKibGg9BAzBc98PT42OfIO?purpose=fullsize', desc: 'Modern invisible grill solutions for balconies and windows, providing maximum safety without obstructing your view.' },
-  { num: '09', title: 'Complete Wooden Work', sub: 'Handcrafted Interiors', img: 'https://images.openai.com/static-rsc-4/41bIWtrwPFpN-Jy4T9yXqmNdHEayF4GXugmghS5Hp1L-FFIbJWLQpYlOeDxUqowV0dEoTNPhhmBtO7Qc0AZ7ZGjbxrM8W6YTos-C7Np70PDjldOcwQgomhcbzGIAPng0He9TIfaswdItdrnTraOQvAQ4-9Wl4chlws_HZJNiaL-KNW_-PqMkxwkyutNsQ_yq?purpose=fullsize', desc: 'End-to-end wooden interior solutions including wardrobes, beds, and bespoke storage units crafted from premium timber.' },
-  { num: '10', title: 'Kitchen Modular Work', sub: 'Ergonomic Excellence', img: 'https://images.openai.com/static-rsc-4/JG2X1TsnN2w8erajIwMcXL1sDoJ3MXaBQZeFwOnPLeF0bn0_RylAsesQNBBxZYEbU26Z_KNcrE4ST5Gm2NoNHKiP-Fx35PXG1bWIIpliaErvWoMiy6JLgwvsMcCp78qSs8PMWC4FsyYIBbD1DUBNniZTmaX81Hiu37fnvdqO65lymZVGmsMyCF4na6U80GiY?purpose=fullsize', desc: 'State-of-the-art modular kitchen designs optimized for functionality, space efficiency, and modern aesthetics.' },
-  { num: '11', title: '2D Drawings', sub: 'Precision Blueprints', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop', desc: 'Detailed 2D architectural drawings and floor plans to layout every inch of your space with absolute accuracy.' },
-  { num: '12', title: '3D Visualisation', sub: 'Realistic Renderings', img: 'https://images.unsplash.com/photo-1558442074-3c1985715fb6?q=80&w=1000&auto=format&fit=crop', desc: 'High-quality 3D visualizations and walk-throughs to preview your dream space before execution.' },
-];
+import { servicesData } from '@/data/services';
 
 export default function Services() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -93,7 +80,8 @@ export default function Services() {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
       scene = new THREE.Scene();
-      scene.fog = new THREE.FogExp2(0x080604, 0.02);
+      const isDark = document.documentElement.classList.contains('dark');
+      scene.fog = new THREE.FogExp2(isDark ? 0x080604 : 0xfcfcfc, 0.02);
 
       camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
       camera.position.z = 30;
@@ -284,24 +272,32 @@ export default function Services() {
             <div className="svc-panel" key={i}>
               <div className="svc-panel-inner">
                 <div className="svc-panel-left">
-                  <div className="svc-num">{s.num}</div>
-                  <div className="svc-subtext">{s.sub}</div>
+                  <div className="svc-num">{s.number}</div>
+                  <div className="svc-subtext">{s.tagline}</div>
                   <h2 className="svc-panel-title">{s.title}</h2>
-                  <p className="svc-panel-desc">{s.desc}</p>
+                  <p className="svc-panel-desc">{s.description}</p>
                   
-                  <a 
-                    href={`https://wa.me/919118861979?text=${encodeURIComponent(`Hello Ansar Ahmed, I am interested in your ${s.title} service for my space.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="svc-whatsapp-btn"
-                  >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    <span>Contact on WhatsApp</span>
-                  </a>
+                  <div className="flex items-center gap-4 flex-wrap mt-6">
+                    <Link 
+                      to={`/service/${s.id}`}
+                      className="svc-whatsapp-btn !bg-copper hover:!bg-copper-dark !text-black border-0 !px-5"
+                    >
+                      <span>View Details</span>
+                    </Link>
+                    <a 
+                      href={`https://wa.me/919059252564?text=${encodeURIComponent(`Hello Ansar Ahmed, I am interested in your ${s.title} service for my space.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="svc-whatsapp-btn !bg-green-600 hover:!bg-green-700 !text-white !border-green-600 shadow-md"
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
                 </div>
                 <div className="svc-panel-right">
                   <div className="svc-img-wrapper">
-                    <img src={s.img} alt={s.title} className="svc-img" />
+                    <img src={s.image} alt={s.title} className="svc-img" />
                   </div>
                 </div>
               </div>

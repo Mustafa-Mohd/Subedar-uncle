@@ -6,116 +6,7 @@ import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
-  {
-    icon: Lightbulb,
-    number: '01',
-    title: 'POP / Gypsum False Ceiling',
-    tagline: 'Ambient Excellence',
-    description: 'Custom false ceiling designs integrated with professional lighting solutions to create the perfect mood for every room.',
-    image: 'https://images.openai.com/static-rsc-4/Bp_DULGF3NIEs5aeJZjWiv9RrG6wT3jRjInp-lb0zqySWLygEtPu_Z-khgVw1T5EcwJ_mTNk7aam8orOXRmSA_HyXATrSoNjwMi8eljLqIpNq7nILy4QUVSz3IuXB6xeB8dPwrahYrwAO_8Rtp1c8LB2AIJ5rtkahey9oY0Gyde1cGCV5bi0c9DB7JcPKbhx?purpose=fullsize',
-    tags: ['False Ceiling', 'POP', 'Gypsum'],
-  },
-  {
-    icon: LayoutGrid,
-    number: '02',
-    title: 'PVC / WPC / Fluted Panels',
-    tagline: 'Modern Wall Solutions',
-    description: 'Durable and stylish PVC, WPC paneling and Fluted panels for walls and ceilings, providing a contemporary aesthetic.',
-    image: 'https://images.openai.com/static-rsc-4/PlKaP4Ulg5uCfjMDeqIX1DZbx1wmciAtAgXIgTbiRZZAOD05zOgnvhHXsGMFhr6X5Y1VUUzi5fkAjfg0FxPqArvSJ3pHLZggJpD7yKu_sUL9E430NKaHRysEbgZN9NOBLh8WVfcPHHPz7WyFQ8v2c-VhQO5Swfg4TDuS1_AUTajB08079R0G4tb--anuZGTA?purpose=fullsize',
-    tags: ['PVC', 'WPC', 'Fluted Panels'],
-  },
-  {
-    icon: Layers,
-    number: '03',
-    title: 'Grid / Thermocol Ceiling',
-    tagline: 'Functional Systems',
-    description: 'Professional grid ceiling and thermocol insulation solutions for commercial and residential utility spaces.',
-    image: 'https://images.openai.com/static-rsc-4/iZIHmCeGh0CUnwiZobxpqng_n16LEd1UaJ1dQTZUyAJ-SFOu2ewjqVgqI4zMw-16gvlVDtNCEWzqKPDhT9nJ7qiwTPEEaEyHLVTn6K7NT0X4rSrtleYzTeh-neifeiUhNCKfd6CerpdRsSRvBLjcNao0WjgSpmv8ANQ_mW1KQ57Y7ri_rnnsQjK2T7l4Syxg?purpose=fullsize',
-    tags: ['Grid Ceiling', 'Thermocol', 'Acoustic'],
-  },
-  {
-    icon: PenTool,
-    number: '04',
-    title: 'Wall Moulding & Design',
-    tagline: 'Classical Elegance',
-    description: 'Sophisticated wall moulding and architectural design elements that add character and depth to your interior spaces.',
-    image: 'https://images.openai.com/static-rsc-4/b2Yy5oyhDB7rCtM205DXj1-9F4gmd_EQ-z199NXMB0-J_leYyh3q1fWJj1M_GmWipcA0HTtfbEYMXKO6h1jS1kS6gZdiYZ4SX32ZBpV6zN1cnnRWXsVzC3nadVAy7b02IH4kCTLYvWBW3QTme6L1ucSyvAtjIK9Rucc8o8cDiEIQqGITQicvUT9-X-MVVVP6?purpose=fullsize',
-    tags: ['Moulding', 'Wall Design', 'Elegance'],
-  },
-  {
-    icon: Settings2,
-    number: '05',
-    title: 'Electrical Solutions',
-    tagline: 'Safe & Smart',
-    description: 'Comprehensive electrical planning, wiring, and smart home integration for a safe and functional modern living environment.',
-    image: 'https://images.openai.com/static-rsc-4/7Yb5d__693cQOIYRadImF5obJPb1_KTk_thgXYNAj7rHNqn2V6RkNotug6X20_rQJGZ4mek0KnbblSasAEOVZUYV_SlD8E5MrIOje1nlJUkbfxcwsOXL3IBabJPRLYaO5oUMywIpaRrsyfZh8sIk94DdzhdN_I9QtuJjoh9AUuiql9LXURcXkWwgVmkmkqds?purpose=fullsize',
-    tags: ['Wiring', 'Lighting', 'Smart Home'],
-  },
-  {
-    icon: Paintbrush,
-    number: '06',
-    title: 'Professional Painting',
-    tagline: 'Vibrant Finishes',
-    description: 'Expert interior and exterior painting services with premium finishes, textures, and professional color consultations.',
-    image: 'https://images.openai.com/static-rsc-4/A7-Jq4XfgwdyyvI-B1ltj_f63aEg8lGscUwr8NELPDtm9L_LnLSkyIkLGJS6dBrLt2sasO9mSPmMKcIx3EyaBPxfx3G1nMAB2_-_HP3_OJEf7J8NaXQjI0KxbX0P36BDQARCDRQmejbJjIndviI1XEugFfTQObHPH52BQbDbhWR9KhdVhg1tZqPCQDJdyRUZ?purpose=fullsize',
-    tags: ['Interior', 'Exterior', 'Texture'],
-  },
-  {
-    icon: Image,
-    number: '07',
-    title: 'Wallpaper / Customizable',
-    tagline: 'Artistic Walls',
-    description: 'A wide range of customizable wallpaper designs and wall coverings to suit your unique aesthetic and lifestyle.',
-    image: 'https://images.openai.com/static-rsc-4/B31YgqOdBAnukubg1_T-F125QkHoVe9__7281-bRGR_OGAEm7W4EC2AGoHDylwDdHfK8BqwbLGFSJRuZu0Tj-EncFcV91F1ZIuHEBDMU4cjP_DtqAZgl5W0orjWYPBky8It10ZetbdBUfIqSq1C6B9JZfyVdaU7f0G3CvcbpEgbbxh9nLtEz4hsWFf8lFhCZ?purpose=fullsize',
-    tags: ['Wallpaper', 'Custom Design', 'Artistic'],
-  },
-  {
-    icon: ShieldCheck,
-    number: '08',
-    title: 'Invisible Grills',
-    tagline: 'Safety First',
-    description: 'Modern invisible grill solutions for balconies and windows, providing maximum safety without obstructing your view.',
-    image: 'https://images.openai.com/static-rsc-4/8Hlvh70-dFsObho17Lbi-8V0GTxY6t-idwjVJmfm2Ny5W7HXN-UfFe_z1c5QeMsWCD0DEx8JSGV40ctzlI4V8P2gwL4QgO7g301rOp8-gHHy9GHNv4uAz1aSpsy4Z2Pchb1j5667sEdPpavGd2iQyaxKfRDLMFD1HFUTRTfCEAEKibGg9BAzBc98PT42OfIO?purpose=fullsize',
-    tags: ['Safety', 'Balcony', 'Invisible'],
-  },
-  {
-    icon: Home,
-    number: '09',
-    title: 'Complete Wooden Work',
-    tagline: 'Handcrafted Interiors',
-    description: 'End-to-end wooden interior solutions including wardrobes, beds, and bespoke storage units crafted from premium timber.',
-    image: 'https://images.openai.com/static-rsc-4/41bIWtrwPFpN-Jy4T9yXqmNdHEayF4GXugmghS5Hp1L-FFIbJWLQpYlOeDxUqowV0dEoTNPhhmBtO7Qc0AZ7ZGjbxrM8W6YTos-C7Np70PDjldOcwQgomhcbzGIAPng0He9TIfaswdItdrnTraOQvAQ4-9Wl4chlws_HZJNiaL-KNW_-PqMkxwkyutNsQ_yq?purpose=fullsize',
-    tags: ['Wardrobes', 'Beds', 'Storage'],
-  },
-  {
-    icon: Utensils,
-    number: '10',
-    title: 'Kitchen Modular Work',
-    tagline: 'Ergonomic Excellence',
-    description: 'State-of-the-art modular kitchen designs optimized for functionality, space efficiency, and modern aesthetics.',
-    image: 'https://images.openai.com/static-rsc-4/JG2X1TsnN2w8erajIwMcXL1sDoJ3MXaBQZeFwOnPLeF0bn0_RylAsesQNBBxZYEbU26Z_KNcrE4ST5Gm2NoNHKiP-Fx35PXG1bWIIpliaErvWoMiy6JLgwvsMcCp78qSs8PMWC4FsyYIBbD1DUBNniZTmaX81Hiu37fnvdqO65lymZVGmsMyCF4na6U80GiY?purpose=fullsize',
-    tags: ['Ergonomic', 'Storage', 'Modular'],
-  },
-  {
-    icon: PenTool,
-    number: '11',
-    title: '2D Drawings',
-    tagline: 'Precision Blueprints',
-    description: 'Detailed 2D architectural drawings and floor plans to layout every inch of your space with absolute accuracy.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop',
-    tags: ['2D', 'Drawings', 'Planning'],
-  },
-  {
-    icon: Image,
-    number: '12',
-    title: '3D Visualisation',
-    tagline: 'Realistic Renderings',
-    description: 'High-quality 3D visualizations and walk-throughs to preview your dream space before execution.',
-    image: 'https://images.unsplash.com/photo-1558442074-3c1985715fb6?q=80&w=1000&auto=format&fit=crop',
-    tags: ['3D', 'Render', 'Visualization'],
-  },
-];
+import { servicesData as services } from '@/data/services';
 
 const ServicesSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -178,9 +69,10 @@ const ServicesSection = () => {
         {/* Service Cards */}
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, i) => (
-            <div
+            <Link
               key={i}
-              className="service-card group relative overflow-hidden rounded-2xl cursor-pointer bg-white dark:bg-white/5 shadow-soft hover:shadow-medium transition-all duration-500"
+              to={`/service/${service.id}`}
+              className="service-card group relative overflow-hidden rounded-2xl cursor-pointer bg-white dark:bg-white/5 shadow-soft hover:shadow-medium transition-all duration-500 block text-left"
             >
               {/* Image */}
               <div className="relative h-60 overflow-hidden">
@@ -189,7 +81,7 @@ const ServicesSection = () => {
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0" style={{ background: 'var(--gradient-card)' }} />
+
                 <div
                   className="absolute top-4 right-4 font-display font-light text-4xl text-copper/30"
                 >
@@ -242,7 +134,7 @@ const ServicesSection = () => {
                   </div>
                   
                   <a 
-                    href={`https://wa.me/919118861979?text=${encodeURIComponent(`Hello Ansar Ahmed, I am interested in ${service.title} for my project.`)}`}
+                    href={`https://wa.me/919059252564?text=${encodeURIComponent(`Hello Ansar Ahmed, I am interested in ${service.title} for my project.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 hover:bg-green-500 hover:text-white transition-all duration-300 group/wa"
@@ -259,7 +151,7 @@ const ServicesSection = () => {
               <div
                 className="absolute inset-0 rounded-2xl border border-transparent transition-all duration-500 group-hover:border-copper/20 pointer-events-none"
               />
-            </div>
+            </Link>
           ))}
         </div>
 

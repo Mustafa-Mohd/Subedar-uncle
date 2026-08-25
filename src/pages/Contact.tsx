@@ -61,7 +61,7 @@ const Contact = () => {
     }
 
     const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/919118861979?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/919059252564?text=${encodedText}`, '_blank');
   };
 
   return (
@@ -101,13 +101,13 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <a href="tel:+919118861979" className="flex items-center gap-4 p-4 rounded-xl bg-ivory dark:bg-white/5 border border-charcoal/5 dark:border-white/5 shadow-sm transition-all hover:shadow-md group">
+                  <a href="tel:+919059252564" className="flex items-center gap-4 p-4 rounded-xl bg-ivory dark:bg-white/5 border border-charcoal/5 dark:border-white/5 shadow-sm transition-all hover:shadow-md group">
                     <div className="w-10 h-10 rounded-lg bg-copper/10 flex-shrink-0 flex items-center justify-center text-copper">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
                       <h3 className="font-grotesk text-[0.6rem] tracking-widest uppercase text-charcoal/40 dark:text-white/40 mb-0.5">Phone & WhatsApp</h3>
-                      <p className="font-display text-base text-charcoal dark:text-white group-hover:text-copper transition-colors">+91 91188 61979</p>
+                      <p className="font-display text-base text-charcoal dark:text-white group-hover:text-copper transition-colors">+91 90592 52564</p>
                     </div>
                   </a>
                   
@@ -117,7 +117,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-grotesk text-[0.6rem] tracking-widest uppercase text-charcoal/40 dark:text-white/40 mb-0.5">Location</h3>
-                      <p className="font-display text-base text-charcoal dark:text-white">Padmavathi Nagar, Borabanda Hyd</p>
+                      <p className="font-display text-base text-charcoal dark:text-white">Site-3 NRR Puram Padmavathi Nagar, Borabanda, Hyderabad - 500018</p>
                     </div>
                   </div>
                 </div>

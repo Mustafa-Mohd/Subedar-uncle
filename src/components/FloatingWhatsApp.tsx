@@ -3,7 +3,7 @@ import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const FloatingWhatsApp = () => {
-  const phoneNumber = "919118861979";
+  const phoneNumber = "919059252564";
   const message = "Hello Ansar Ahmed, I'm interested in Nexlane Interiors services.";
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
