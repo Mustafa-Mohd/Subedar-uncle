@@ -117,7 +117,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-grotesk text-[0.6rem] tracking-widest uppercase text-charcoal/40 dark:text-white/40 mb-0.5">Location</h3>
-                      <p className="font-display text-base text-charcoal dark:text-white">Site-3 NRR Puram Padmavathi Nagar, Borabanda, Hyderabad - 500018</p>
+                      <p className="font-display text-base text-charcoal dark:text-white">J/125/A, NRR Puram, Site 3, Borabanda, Hyderabad - 500018</p>
                     </div>
                   </div>
                 </div>

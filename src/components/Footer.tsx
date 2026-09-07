@@ -66,7 +66,7 @@ const Footer = () => {
               </a>
               <div className="flex items-center gap-3 text-charcoal/60 dark:text-white/60">
                 <MapPin className="w-4 h-4 flex-shrink-0 text-copper" />
-                <span className="font-body text-sm">Site-3 NRR Puram Padmavathi Nagar, Borabanda, Hyderabad - 500018</span>
+                <span className="font-body text-sm">J/125/A, NRR Puram, Site 3, Borabanda, Hyderabad - 500018</span>
               </div>
             </div>
 
